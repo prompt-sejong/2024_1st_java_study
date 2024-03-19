@@ -1,0 +1,19 @@
+{
+  "name": "java-study",
+  "version": "0.0.1",
+  "description": "2024 Prompt! 1st Java Study",
+  "main": "index.js",
+  "authors": {
+    "name": "prompt",
+    "email": "sejong.prompt@gmail.com"
+  },
+  "repository": "/java-study",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
