@@ -152,11 +152,11 @@ WEEK02/BooleanLiteral.java
 
 **C, C++, Python**에서 **전역 변수**(*Global Variable*)과 **지역 변수**(*Local Variable*)가 있었던 것과 같이, **Java**에서는 **인스턴스 변수**(*Instance Variable*)와 **클래스 변수**(*Class Variable*), 그리고 **지역 변수**(*Local Variable*)이 있습니다. 변수를 초기화하지 않으면, 그 변수에는 쓰레기 값이 담깁니다. 인스턴스 변수와 클래스 변수는 변수의 값이 유지된다는 특징을 가지고 있어, 메서드가 종료될 때 변수가 소멸하는 지역 변수와 달리, 초기화를 하지 않아도 **기본값이 저장**됩니다.
 
-![](assets/img165.png)
+![](assets/img11a.png)
 
 WEEK02/DefaultValue.java
 
-![](assets/img47.png)
+![](../assets/img47.png)
 
 다음과 같이 출력되며, char의 경우, 기본값은 '\u0000'이며, IDE의 지원 환경에 따라, 위와 같이 출력되지 않을 수 있습니다.
 
@@ -168,7 +168,7 @@ WEEK02/DefaultValue.java
 
 자료형에는 크게 **프리미티브 타입**과 **래퍼런스 타입**으로 나뉩니다.
 
-![](assets/img166.png)
+![](../assets/img12a.png)
 
 call_by_reference.cpp
 
