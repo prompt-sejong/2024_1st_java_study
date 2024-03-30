@@ -37,12 +37,7 @@
 
 WEEK02/LocalVariable.java
 
-<aside>
-📢 **출력 예시**
-❗java: cannot find symbol
-❗symbol: variable i
-
-</aside>
+![](assets/img41.png)
 
 변수 i는 if문 내에서 초기화되었고,  i의 값을 출력하려고 하면, 오류가 발생합니다. i의 **유효 범위**(*scope*)를 벗어났기 때문입니다.
 
@@ -74,11 +69,7 @@ Java의 모든 변수는 중괄호 블록 내에서 선언되고 사용되며, �
 
 WEEK02/IntegerLiteral.java
 
-<aside>
-📢 **출력 예시**
-9 148 1315 179
-
-</aside>
+![](assets/img42.png)
 
 Java는 2진수, 8진수, 10진수, 16진수를 정수로 인식합니다.
 
@@ -86,11 +77,7 @@ Java는 2진수, 8진수, 10진수, 16진수를 정수로 인식합니다.
 
 WEEK02/LongLiteral.java
 
-<aside>
-📢 **출력 예시**
-a = 20240124, b = 2345678901
-
-</aside>
+![](assets/img43.png)
 
 **long 타입**은 기본적으로, int로 간주합니다. 따라서, int 범위를 넘어서는 경우, 정수 리터럴* 뒤에 소문자 l 또는 대문자 L을 붙여, 컴파일러가 long으로 인식하게 해야 합니다.
 
@@ -98,11 +85,7 @@ a = 20240124, b = 2345678901
 
 WEEK02/CharLiteral.java
 
-<aside>
-📢 **출력 예시**
-var1 = A, var2 = A, var3 = A
-
-</aside>
+![](assets/img44.png)
 
 Java에서는 **유니코드**를 저장할 수 있는 2byte 크기인 **char 타입**을 지원합니다. 10진수, 16진수를 인식할 수 있습니다.
 
@@ -114,20 +97,7 @@ Java에서는 **유니코드**를 저장할 수 있는 2byte 크기인 **char �
 
 WEEK02/StringLiteral.java
 
-<aside>
-📢 **출력 예시**
-
-A
-세종대학교
-칸을	     띄웁니다.
-줄을
-변경합니다.
-단어3
-"집에 가고 싶다."
-'Copilot'은 신이다.
-\ 이것은 역슬래시.
-
-</aside>
+![](assets/img45.png)
 
 운영체제 또는 IDE에 따라, \n과 \r의 지원 유무 및 처리 방식이 다를 수도 있습니다.
 
