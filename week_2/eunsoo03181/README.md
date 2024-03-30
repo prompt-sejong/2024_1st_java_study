@@ -219,14 +219,7 @@ global_var.py
 
 WEEK02/GlobalVariable.java
 
-<aside>
-📢 **출력 예시**
-
-class_var = 0
-instance_var = 0
-local_var = 0
-
-</aside>
+![](assets/img49.png)
 
 위는 **클래스 변수**, **인스턴스 변수**, **지역 변수**를 선언하고 초기화한 예시입니다. 클래스 변수와 인스턴스 변수는 자동 초기화된다는 특징이 있습니다.
 
@@ -240,12 +233,7 @@ WEEK02/ClassVariable.java
 
 WEEK03/ClassVariable2.java
 
-<aside>
-📢 **출력 예시**
-
-0
-
-</aside>
+![](assets/img50.png)
 
 클래스 변수가 선언되면, 클래스 이름이 같은 모든 영역에서 해당 변수를 호출할 수 있으므로, 여러 개의 프로젝트를 동시에 사용할 경우, 주의가 필요할 수 있습니다. 클래스 변수의 접근 제어 지시자를 public으로 설정한다면, 다른 패키지에서도 클래스 변수를 호출할 수 있습니다.
 
@@ -257,14 +245,7 @@ WEEK03/ClassVariable2.java
 
 WEEK02/VariablePriority.java
 
-<aside>
-📢 **출력 예시**
-
-10
-
-5
-
-</aside>
+![](assets/img51.png)
 
 또한, 변수가 호출될 때 **지역 변수가 전역 변수보다 우선 호출**됩니다.
 
@@ -284,12 +265,7 @@ cf. **지역 변수**(*Local Variable*)는 **stack 영역에 저장**됩니다. 
 
 WEEK02/Promotion.java
 
-<aside>
-📢 **출력 예시**
-
-3.0
-
-</aside>
+![](assets/img52.png)
 
 자동 타입 변환은 값의 허용 범위가 작은 타입을 큰 범위에 저장될 때 발생합니다. 다음은, 범위의 크기를 역순으로 나열한 것입니다.
 
@@ -305,14 +281,7 @@ byte < short < int < long < float < double
 
 WEEK02/Casting.java
 
-<aside>
-📢 **출력 예시**
-
-A
-
-3
-
-</aside>
+![](assets/img53.png)
 
 int는 float보다 범위가 작지만, 강제 타입 변환을 통해 float형 변수를 int형으로 변환할 수 있습니다. 이 경우, 소숫점이 제거됩니다.
 
@@ -324,14 +293,7 @@ int는 float보다 범위가 작지만, 강제 타입 변환을 통해 float형 
 
 WEEK02/OperatorPromotion.java
 
-<aside>
-📢 **출력 예시**
-
-0
-
-0.5
-
-</aside>
+![](assets/img54.png)
 
 따라서, 우리가 원하는 값인 0.5를 출력하기 위해서는 둘 중 하나의 자료형을 실수형으로 바꿔야 합니다. **자료형이 다른 값끼리 연산을 할 경우, 범위가 큰 자료형으로 저장**이 되기 때문입니다.
 
@@ -347,15 +309,7 @@ WEEK02/OperatorPromotion.java
 
 WEEK02/StringPromotion.java
 
-<aside>
-📢 **출력 예시**
-
-Hello, World!55
-Hello, World!10
-Hello, World!25
-10Hello, World!
-
-</aside>
+![](assets/img55.png)
 
 문자열을 기본 타입으로 강제 타입 변환하고 싶다면, 다음 코드를 통해 변환할 수 있습니다.
 
@@ -363,12 +317,7 @@ Hello, World!25
 
 WEEK02/StringCast.java
 
-<aside>
-📢 **출력 예시**
-
-12
-
-</aside>
+![](assets/img56.png)
 
 반대로 숫자를 문자열로 변환하고 싶은 경우에는 다음과 같이 사용하면 됩니다.
 
@@ -410,13 +359,7 @@ WEEK02/JVMStackReferenceType.java
 
 WEEK02/ReferenceOperator.java
 
-<aside>
-📢 **출력 예시**
-
-true
-ABC
-
-</aside>
+![](assets/img57.png)
 
 arr1과 arr2는 같은 값을 참조하므로, arr1 == arr2는 항상 true가 출력됩니다.
 
@@ -428,13 +371,7 @@ arr1과 arr2는 같은 값을 참조하므로, arr1 == arr2는 항상 true가 �
 
 WEEK02/ReferenceLiteral.java
 
-<aside>
-📢 **출력 예시**
-
-str1과 str2는 같은 값을 참조합니까? true
-arr1과 arr2는 같은 값을 참조합니까? false
-
-</aside>
+![](assets/img58.png)
 
 **문자열은 값이 같은 경우 항상 같은 값을 참조**하고, **배열은 서로 다른 값을 참조**합니다. 하지만, 입력한 값이 같다고 하더라도 참조하는 값이 달라야 하는 상황이 생길 수도 있습니다. 이 경우에는 **new 연산자**를 사용합니다.
 
@@ -442,12 +379,7 @@ arr1과 arr2는 같은 값을 참조합니까? false
 
 WEEK02/NewReferenceLiteral.java
 
-<aside>
-📢 **출력 예시**
-
-str1과 str2는 같은 값을 참조합니까? false
-
-</aside>
+![](assets/img59.png)
 
 **new 연산자**는 **heap 영역**에 새로운 객체를 만들기 때문에, ‘**객체 생성 연산자**’라고도 부릅니다.
 
@@ -498,12 +430,7 @@ WEEK02/ArrayDeclaration.java
 
 WEEK02/ArrayLength.java
 
-<aside>
-📢 **출력 예시**
-
-5
-
-</aside>
+![](assets/img60.png)
 
 **length 필드**는 **읽기 전용**이기 때문에, 값을 임의로 변경할 수 없습니다.
 
@@ -513,15 +440,7 @@ WEEK02/ArrayLength.java
 
 ![](assets/img34.png)
 
-<aside>
-📢 **출력 예시**
-
-3
-4
-4
-4
-
-</aside>
+![](assets/img61.png)
 
 ![](assets/img35.png)
 
@@ -549,14 +468,7 @@ WEEK02/NonSquareArry.java
 
 ![](assets/img38.png)
 
-<aside>
-📢 **출력 예시**
-
-true
-false
-true
-
-</aside>
+![](assets/img62.png)
 
 0번째 값과 1번째 값은 같은 주소를 참조하고, 2번째 값은 다른 주소를 참조합니다. 따라서, 위와 같은 결과가 발생합니다.
 
@@ -570,12 +482,7 @@ System.arraycopy() 호출하는 방법은 다음과 같습니다.
 
 WEEK02/ArrayCopy.java
 
-<aside>
-📢 **출력 예시**
-
-A, B, C, null, null
-
-</aside>
+![](assets/img63.png)
 
 복사한 새 배열의 항목은 이전 배열의 항목이 참조하는 객체와 동일합니다.
 
@@ -593,14 +500,7 @@ A, B, C, null, null
 
 WEEK02/VarType.java
 
-<aside>
-📢 **출력 예시**
-
-55
-
-10
-
-</aside>
+![](assets/img64.png)
 
 var1은 “5”를 String으로 추론하여, 연산시 정수를 문자열로 자동 타입 변환을 하였습니다.
 
