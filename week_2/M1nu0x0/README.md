@@ -294,7 +294,7 @@ public class Main {
     - 기본 생성자에는 따로 명시적 초기화 구문 X
     - 최종적으로 name에는 null, id에는 0이 그대로 있음
 
-> *스터디 질문 사항*: 위와 같은 순서대로 변수들이 초기화 되는 것이 맞나요? final이 아니 변수들은 초기화 순서에 따라 값이 달라질 것 같아서 궁금합니다.
+> *스터디 질문 사항*: 위와 같은 순서대로 변수들이 초기화 되는 것이 맞나요? final이 아닌 변수들은 초기화 순서에 따라 값이 달라질 것 같아서 궁금합니다.
 
 > *답변*:
 
@@ -309,6 +309,7 @@ public class Main {
 | protected             | Yes     | Yes      | No    |
 | Default (no modifier) | Yes     | No       | No    |
 | private               | No      | No       | No    |
+
 - public
   - 모든 접근을 허용 (어떤 클래스가 접근하든 모두 허용)
 - protected
@@ -412,6 +413,7 @@ result = num1 - num2; // result == -4
 | long           | Long.MAX_VALUE    | Long.MIN_VALUE    |
 | float          | Float.MAX_VALUE   | Float.MIN_VALUE   |
 | double         | Double.MAX_VALUE  | Double.MIN_VALUE  |
+
 위 값들을 확인하고 형 변환을 하는 것이 안전하게 형 변환을 하는 방법이다.
 
 ## 6.2. [타입 캐스팅](https://velog.io/@sezzzini/Java-Casting)
@@ -431,7 +433,7 @@ Reference Type에서 클래스의 객체끼리의 형 변환을 살펴볼 것이
 super
 - 부모 클래스와 자식 클래스의 멤버 변수 이름이 같을 때 구분하기 위해 사용하기도 함
   - ex) 자식 클래스에서 this.x와 super.x를 사용할 수 있다는 것
-  - 
+
 super()
 - 부모 클래스의 생성자를 호출하는 메소드.
 - 자식 클래스의 인스턴스를 생성하면, 부모 클래스의 모든 멤버까지 포함됨
