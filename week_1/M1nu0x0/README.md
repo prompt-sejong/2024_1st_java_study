@@ -10,9 +10,9 @@
 ## JVM이란 무엇일까?
 JVM이 무엇인지 알기 전에 JVM이 왜 쓰이는지에 대해서 알아야한다.
 
-java라는 언어는 os를 런타임 환경으로 사용하던 타 언어의 단점인 os마다 다른 코드를 작성해야 하는 점을 해소하기 위한 기능을 갖고 있다. 따라서 자바의 표어가 Write once, run anywhere일 정도로 어느 os에서든 잘 돌아가게 설계되었다.
+java라는 언어는 os를 런타임 환경으로 사용하던 타 언어의 단점인 os마다 다른 코드를 작성해야 하는 점을 해소하기 위한 기능을 갖고 있다. 따라서 자바의 표어가 `Write once, run anywhere`일 정도로 어느 os에서든 잘 돌아가게 설계되었다.
 
-후술하겠지만 java가 WORA를 실천할 수 있는 이유는 JDK를 이용해 작성한 java코드를 JRE를 이용해 바이트 코드를 생성하고 이를 JVM을 통해 실행하기 때문이다.
+후술하겠지만 java가 `WORA`를 실천할 수 있는 이유는 JDK를 이용해 작성한 java코드를 JRE를 이용해 바이트 코드를 생성하고 이를 JVM을 통해 실행하기 때문이다.
 
 [JVM 동작 원리](https://steady-snail.tistory.com/67), [오라클 자바22 documents](https://docs.oracle.com/en/java/javase/22/)
 ## 컴파일
@@ -24,7 +24,7 @@ java라는 언어는 os를 런타임 환경으로 사용하던 타 언어의 단
 - 실행엔진(Execution Engine)은 JVM 메모리에 올라온 바이트 코드들을 명령어 단위로 하나씩 가져와서 실행
 ## 실행하는 방법
 ### JDK 설치
-[오라클 JDK](https://www.oracle.com/kr/java/technologies/downloads/) 다운로드 사이트에서 22, 21, 17.. 등 원하는 버전으 다운 받아서 설치한다.
+[오라클 JDK](https://www.oracle.com/kr/java/technologies/downloads/) 다운로드 사이트에서 22, 21, 17.. 등 원하는 버전으로 다운 받아서 설치한다.
 ![다운로드](assets/download.png)
 ![설치1](assets/install1.png)
 ![설치2](assets/install2.png)
@@ -98,7 +98,7 @@ JIT Compiler는 최적화 레벨(cold, warm, hot, veryHot or scorching)에서 �
     - 클래스 변수들(static 변수)을 적절한 값으로 초기화
     - 즉, static 필드들이 설정된 값으로 초기화
 #### Runtime Data Area
-모든 스레드가 공유하는 영역
+모든 쓰레드가 공유하는 영역
 - Method Area
   - 클래스 수준의 정보(클래스 이름, 부모 클래스 이름, 메소드, 변수)를 저장하는 영역
 - Heap Area
@@ -106,7 +106,7 @@ JIT Compiler는 최적화 레벨(cold, warm, hot, veryHot or scorching)에서 �
 
 쓰레드 별 하나씩 생성되는 영역
   - Stack Area
-    - 쓰레드마다 런타임 쓰레드를 만들고 그 안에 Method Call을 스택 프레임이라 부르는 블러긍로 쌓음
+    - 쓰레드마다 런타임 쓰레드를 만들고 그 안에 Method Call을 스택 프레임이라 부르는 블럭으로 쌓음
     - 쓰레드를 종료하면 스택도 사라짐
   - Native Method Area
     - 자바 외의 언어로 작성된 네이티브 코드를 위한 스택
@@ -132,14 +132,14 @@ Garbage Collector
 #### Dynamic Loading
 런타임에 동적으로 클래스를 로딩하는 것은 JVM이 클래스에 대한 정보를 갖고 있지 않다는 것을 의미함.
 
-즉, JVM은 이 클래스가 유요한지 로딩할 때 판단 해야함.
+즉, JVM은 이 클래스가 유효한지 로딩할 때 판단 해야함.
 
 JVM은 내부적으로 클래스를 분석할 수 있는 기능을 갖고 있으며 개발자들은 이것을 Reflection을 통해 분석할 수 있다.
 
 Load-Time Dynamic Loading
 - 다른 클래스를 읽어오는 과정에서 함께 로딩되는 것을 로드타임 동적 로딩이라고 함
 
-Run-Time Dynamci Loading
+Run-Time Dynamic Loading
 - 클래스를 로딩할 때가 아닌 코드를 실행하는 순간에 클래스를 로딩하는 것을 런타임 동적 로딩이라 함
 ## JDK와 JRE의 차이
 ![java file](assets/jdk_jre_jvm.png)
