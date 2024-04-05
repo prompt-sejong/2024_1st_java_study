@@ -34,9 +34,12 @@ JDK의 `./bin/javac.exe` 파일이 Java Compiler
 ## 실행하는 방법    
 
 <example!>  
+'''
 java source code file name: minji   
 cmd> javac minji.java  // compiler execution, class file create     
 cmd> java minji        // type class file name, and execute     
+'''  
+&nbsp;
 
 ## 바이트 코드란 무엇인가   
 **VM에서 돌아가는 실행 프로그램을** 위한 이진 표현법    
