@@ -2,21 +2,24 @@
 Java Virtual Machine    
 java는 OS에 종속적이지 않음 
 
-보통의 프로그램/프로세스들은 OS가 실행시킴  
-==> 그러면 Java는 무엇이 실행시킬까?    
+보통의 프로그램/프로세스들은 OS가 실행시킴      
+==> 그러면 Java는 무엇이 실행시킬까?        
 
-OS 위에서 java를 실행시킬 것이 필요함   
-==> OS에 종속받지 않고, CPU가 Java를 인식할 수 있게 하는 가상 컴퓨터    
+OS 위에서 java를 실행시킬 것이 필요함       
+==> **OS에 종속받지 않고, CPU가 Java를 인식할 수 있게 하는 가상 컴퓨터**      
+   
+      
+![JVM-architecture](./assets/jvm-architecture.png)      
+   
+java 소스코드 (*.java 파일)은 CPU가 인식하지 못함       
+==> `기계어`로 컴파일 해주어야 함        
+   
 
-![JVM-architecture](./assets/jvm-architecture.png)  
-
-java 소스코드 (*.java 파일)은 CPU가 인식하지 못함   
-==> 기계어로 컴파일 해주어야 함 
-
+   
 가상머신(VM)을 거쳐서 OS에 도달함   
 맨 처음에 가상머신(VM)도 바로 인식할 수 없음    
 source code (.java file) => [java compiler] => java byte code(.class file) => [JVM] => [OS] => execution!   
-
+   
 ![java-execution](./assets/java-execution.jpg)  
 
 * 다만 자바 프로그램과는 달리 JVM은 운영체제에 종속적이므로 운영체제에 맞는 자바 가상머신을 설치할 필요가 있음      
@@ -58,24 +61,25 @@ JVM은 런타임에 바이트 코드를 로드하고 인터프리터를 사용�
 자바 바이트 코드 해석 => 기본 어플리케이션에 비해서 성능이 저하됨   
 JIT 컴파일러는 바이트 코드를 "just-in-time" 적절한 시간에 실행될 수 있는 native machine code로 컴파일하여 성능을 높임       
 
-## JVM 구성 요소    
-
+## JVM 구성 요소       
+   
 1. Class loader
 2. execution engine
 3. runtime data area
 4. native method interface
-5. native method library
-
+5. native method library   
+   
 **클래스 로더** : 클래스 파일을 동적으로 로드하고, 링크를 통해 배치하는 작업을 수행함       
 로드된 바이트 코드들을 엮어서 JVM 메모리 영역인 Runtime data areas에 배치함 
 클래스를 메모리에 올릴 때 (load) 한번에 메모리에 올리지 않고, 어플리케이션에서 필요한 경우 동적으로 메모리에 로드함     
-
-load => 클래스 파일을 가져와서 JVM 메모리에 로드    
-link => 클래스 파일을 사용하기 위해 검증    
+  
+`load` => 클래스 파일을 가져와서 JVM 메모리에 로드    
+`link` => 클래스 파일을 사용하기 위해 검증    
 ㄴ verifying: JVM 명세대로 구성되어있는지 검사  
 ㄴ preparing: 클래스가 필요로 하는 메모리 할당  
 ㄴ resolving: 클래스의 상수 풀 내 모든 심볼릭 레퍼런스를 다이렉트 레퍼런스로 변경   
-initialization => 클래스 변수들을 적절한 값으로 초기화      
+  
+`initialization` => 클래스 변수들을 적절한 값으로 초기화      
 
     
 **실행 엔진** : 클래스 로더를 통해 런타임 데이터 영역에 배치된 바이트 코드를 명령어 단위로 읽어서 실행함    
@@ -101,14 +105,16 @@ method entry counter 값에 해당되는 임계치는 CompileThreshold이고 bac
 
 ## JDK와 JRE의 차이   
 
-**JDK** : Java Development Kit, 자바 개발 키트. 자바를 개발하는 데에 있어서 필요한 기능 내장.
+**JDK** : Java Development Kit, 자바 개발 키트. 자바를 개발하는 데에 있어서 필요한 기능 내장.   
 자바 프로그램을 `개발` 하는데 필요한 것. JDK안에 JRE도 포함되어 있음.   
-![JDK](.assets/JDK.png)
-
-ㄴ **JRE** : Java Runtime Environment, 자바 런타임 환경. 자바 프로그램을 `실행` 시키는 데에 필요한 환경   
-![JRE](./assets/JRE.png)
-
-
+   
+![JDK](./assets/JDK.png)   
+   
+ㄴ **JRE** : Java Runtime Environment, 자바 런타임 환경. 자바 프로그램을 `실행` 시키는 데에 필요한 환경    
+   
+![JRE](./assets/JRE.png)   
+    
+   
 ### 참고 자료
 (https://people-analysis.tistory.com/246)
 (https://doozi0316.tistory.com/entry/1%EC%A3%BC%EC%B0%A8-JVM%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%A9%B0-%EC%9E%90%EB%B0%94-%EC%BD%94%EB%93%9C%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%8B%A4%ED%96%89%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B8%EA%B0%80)
