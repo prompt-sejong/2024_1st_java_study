@@ -34,8 +34,8 @@ JDK의 `./bin/javac.exe` 파일이 Java Compiler
 ## 실행하는 방법    
 
 <example!>  
-'''
-java source code file name: minji   
+'''java  
+source code file name: minji   
 cmd> javac minji.java  // compiler execution, class file create     
 cmd> java minji        // type class file name, and execute     
 '''  
