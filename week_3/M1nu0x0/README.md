@@ -3,7 +3,7 @@
   - [1.2. 비트 연산자](#12-비트-연산자)
   - [1.3. 관계 연산자](#13-관계-연산자)
   - [1.4. 논리 연산자](#14-논리-연산자)
-- [2. insance of](#2-insance-of)
+- [2. instance of](#2-instance-of)
 - [3. assignment(=) operator](#3-assignment-operator)
 - [4. 화살표(-\>) 연산자](#4-화살표--연산자)
   - [4.1. Lambda expression](#41-lambda-expression)
@@ -111,7 +111,7 @@ System.out.println('a' <= 'A');     // false
 
 이와 비슷하게 `||`도 이러한 특징이 있는데, A가 `true`면 뒤가 어떻든 `true`이다. 따라서 A가 `true`면 B는 실행하지 않고 `true`를 반환한다.
 
-# 2. insance of
+# 2. instance of
 2주차에 살펴본 연산자이다. 간단히 보고 넘어가겠다. 문법은 다음과 같다.
 ``` java
 object instanceof type
