@@ -274,7 +274,30 @@ public static void main(String[] args){
 
 타입 추론: 개발자가 변수의 타입을 명시적으로 적어주지 않아도, 컴파일러가 알아서 이 변수의 타입을 대입된 리터럴로 추론하는 것 
 
-# 여기 보충할 것 
+```java
+var string = "Hello, World";
+```
+<br>
+
+컴파일러 측에서 String 형으로 추론하여 변수를 지정해줌  
+var는 지역 변수에서만 사용이 가능함  
+컴파일러가 타입을 추론할 수 없는 애매한 상황일 때 컴파일 에러가 발생함  
+<br>
+
+```java
+var str = "Hello, World";
+
+if (str instanceof String) {
+    System.out.println("This is a String: " + str);
+}
+```
+<br>
+
+- 지역변수가 아닌, 멤버 변수에서 사용할 경우 컴파일 에러가 발생함
+- 초기화를 하지 않으면 타입 추론이 불가능하므로 컴파일 에러가 발생함
+- null로 초기화할 수 없음.
+- 배열에 사용할 수 없음. 
+- 람다에 사용할 수 없음. 
 
 
 ## 참고자료
