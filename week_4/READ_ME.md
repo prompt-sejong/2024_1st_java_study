@@ -11,7 +11,7 @@
 |---|------|----|
 |김경환|KyongHwan-Kim|-|
 |김민우|M1nu0x0|-|
-|김민지|zizonminji|-|
+|김민지|zizonminji|✔|
 |김찬결|Kck106|-|
 |정은수|eunsoo03181|-|
 
