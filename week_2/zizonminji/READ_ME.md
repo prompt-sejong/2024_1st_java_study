@@ -169,24 +169,114 @@ class minji{
 
 클래스 초기화 블럭은 클래스가 메모리에 처음 로딩될 때 한번만 수행됨  
 
-
-
+&nbsp;  
 
 
 ## 변수의 스코프와 라이프타임  
 &nbsp;
+
+**변수의 스코프:** 변수가 접근할 수 있는 유효 범위  
+**라이프 타임:** 이러한 변수가 유효한 시간,  
+프로그램이 구동되는 동안 변수가 '값을 담고 있을 수 있는 주기'를 말함.  
+
+
+
+| **변수의 종류**   | **선언 위치**                    | **스코프**                                       | **라이프 사이클**                                        |
+| ----------------- | -------------------------------- | ------------------------------------------------ | -------------------------------------------------------- |
+| **클래스 변수**   | 클래스 영역                      | 클래스 전체                                      | 클래스 전체가 메모리에 올라간 후 프로그램이 끝날 때 까지 |
+| **인스턴스 변수** | 클래스 영역                      | static 블록과 static 메서드를 제외한 클래스 전체 | 인스턴스가 생성 후 메모리에 살아있을 때까지              |
+| **로컬 변수**     | 메소드, 생성자, 초기화 블럭 내부 | 변수가 선언된 블록 내부                          | 변수 선언 후 블록을 벗어날 때까지                        |
 
 
 
 ## 타입 변환, 캐스팅 그리고 타입 프로모션  
 &nbsp;
 
+- **자동 형변환(Promotion)**  
+값의 허용 범위가 더 작은 타입이 큰 타입으로 저장될 때 발생함  
+데이터가 다른 데이터 타입으로 자동으로 변환됨  
+
+`byte < short < char < int < long < float < double`   
+
+```java
+public class HelloWorld {
+	public static void main(String[] args) {
+
+        byte x=1;
+        int y=0;
+
+        y=x;    //byte가 자동으로 int로 형변환
+
+    }
+}
+```
+&nbsp;  
+char 타입 같은 경우에는 음수를 갖지 않기 때문에 음수 값을 갖는 데이터를  
+char 타입으로 변환하려고 하면 컴파일 에러가 발생함.  
+기본적으로 컴파일러는 실수값을 double로 인식. float로 계산할 경우에는 리터럴 뒤에 f 또는 F를 적어주어야 함.  
+정수형 변수의 연산 결과를 저장할 때는 버림이 됨 (나눗셈의 경우)  
+실수형으로 계산하려면 타입 변환을 해주고 연산을 해주어야 함  
+&nbsp;  
+
+
+- **강제 형변환(Casting)**  
+
+큰 허용 범위의 타입을 작은 허용 범위의 타입으로 전환함  
+자동적으로 변환되지 않으므로 강제적으로 타입을 변환해야 함  
+캐스팅 연산자 `괄호()`를 사용함  
+
+```
+작은 허용 범위 타입 = (작은 허용 범위 타입) 큰 허용 범위 타입
+```
+
+큰 허용 범위 타입을 작은 허용 범위에 담을 수 있도록 나누고  
+나누어진 부분 중 한 조각이 작은 허용 범위 타입으로 저장됨  
+이 때 나머지 조각들은 버려짐  
+
+**int 타입을 char 타입으로 바꿀 때**  
+int 타입이 더 큰 범위를 갖고 있으므로 강제로 타입을 변환해야 함  
+char 타입으로 강제 변환하면 정수 값이 유니코드 값으로 저장됨  
+**String 타입을 기본 타입으로 바꿀 때**  
+String 타입을 기본 타입으로 변환하려면 갖에로 타입을 변환해야 함
+캐스팅 () 연산자가 아닌 자바가 제공하는 API 클래스를 사용해야 함
+
+| 변환 타입        | API 클래스             | 사용 예                                                            |
+| ---------------- | ---------------------- | ------------------------------------------------------------------ |
+| String → byte    | Byte.parseByte()       | String str = "10"; <br>byte value = Byte.parseByte(str);           |
+| String → short   | Short.parseShort()     | String str = "10"; <br> short value = Short.parseShort(str);       |
+| String → int     | Integer.parseInt()     | String str = "10"; <br>int value = Integer.parseInt(str);          |
+| String → long    | Long.parseLong()       | String str = "10";<br>long value = Long.parseLong(str);            |
+| String → float   | Float.parseFloat()     | String str = "3.14";<br>float value = Float.parseFloat(str);       |
+| String → double  | Double.parseDouble()   | String str = "3.14";<br>double value = Double.parseDouble(str);    |
+| String → boolean | Boolean.parseBoolean() | String str = "true";<br>boolean value = Boolean.parseBoolean(str); |
+
+&nbsp;  
 
 ## 1차 및 2차 배열 선언하기  
 &nbsp;
+```java
+public static void main(String[] args){
+    int [] miasdr;         //1차원 배열 선언
+    int [] mini=new int[2];     //1차원 배열 초기화
+    int [] mini2={2,3,4,5};
+
+
+    int [][] array;
+    array=new int[1][5];    //2차원 배열 초기화
+    int [][] array2 = new int [1][5];   //기본값 0으로 초기화
+    int [][] array3={{1,2,3}, {4,5,6}};
+}
+```
 
 
 ## 타입 추론, var  
 &nbsp;
 
+타입 추론: 개발자가 변수의 타입을 명시적으로 적어주지 않아도, 컴파일러가 알아서 이 변수의 타입을 대입된 리터럴로 추론하는 것 
 
+
+
+
+## 참고자료
+
+https://velog.io/@soheeoott/Java-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98  
