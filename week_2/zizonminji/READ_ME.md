@@ -300,6 +300,3 @@ if (str instanceof String) {
 - 람다에 사용할 수 없음. 
 
 
-## 참고자료
-
-https://velog.io/@soheeoott/Java-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98  
