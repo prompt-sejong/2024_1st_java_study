@@ -3,6 +3,7 @@
   - [2.1. 키워드 유무 차이](#21-키워드-유무-차이)
 - [3. 메소드 정의하는 방법](#3-메소드-정의하는-방법)
 - [4. 생성자 정의하는 방법](#4-생성자-정의하는-방법)
+  - [4.1. Method Overloading](#41-method-overloading)
 - [5. this 키워드 이해하기](#5-this-키워드-이해하기)
 
 # 1. [클래스 정의하는 방법](https://danmilife.tistory.com/19)
@@ -125,6 +126,7 @@ public class FourCal {
 ```
 사실 위에서 사용한 예시에서 생성자를 사용했다.
 
+## 4.1. Method Overloading
 다음은 `Method Overloading`을 사용한 예시를 보자.
 ```java
 class FourCalculator {
