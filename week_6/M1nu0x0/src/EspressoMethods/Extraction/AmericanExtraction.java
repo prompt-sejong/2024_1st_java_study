@@ -1,0 +1,10 @@
+package EspressoMethods.Extraction;
+
+import EspressoMethods.Espresso.Espresso;
+
+public class AmericanExtraction implements Extraction {
+    @Override
+    public void extraction(Espresso espresso) {
+        espresso.extractingMethods(this);
+    }
+}
