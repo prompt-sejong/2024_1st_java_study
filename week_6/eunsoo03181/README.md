@@ -151,7 +151,10 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e
 
 Bus 클래스는 Vehicle로부터 상속을 받고 있고, 매개변수를 Bus로 선언하게 된 경우 자동 타입 변환이 발생합니다. 매개변수의 타입이 클래스일 경우, 해당 클래스의 객체뿐만 아니라 자식 객체의 매개값도 사용할 수 있습니다. 자식 객체가 메소드를 오버라이딩한 경우 메소드의 실행 결과도 마찬가지로 재정의됩니다.
 
-(예시, Vehicle Driver)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Vehicle.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Bus.java#L1-L8
+https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Vehicle.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Main.java#L1-L15
 
 ### 강제 타입 변환
 
@@ -159,7 +162,9 @@ Bus 클래스는 Vehicle로부터 상속을 받고 있고, 매개변수를 Bus�
 
 즉, 위와 같은 경우에만 강제 타입 변환이 가능해집니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Casting/Parent.java#L1-L15
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Casting/Child.java#L1-L17
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Casting/Main.java#L1-L20
 
 ### 객체 타입 확인
 
@@ -167,7 +172,9 @@ Bus 클래스는 Vehicle로부터 상속을 받고 있고, 매개변수를 Bus�
 
 instanceof 연산자는 좌항에 객체가, 우항에는 타입이 오는데, 좌항의 객체가 우항의 인스턴스(instance)면 true를, 아니면 false를 반환합니다. 다음과 같이 조건을 확인한 후에 강제 타입 변환을 한다면 코드의 오류(ClassCastException)를 줄일 수 있습니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/InstanceOf/Parent.java#L1-L4
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/InstanceOf/Child.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/InstanceOf/Main.java#L1-L10
 
 ---
 
@@ -183,13 +190,20 @@ instanceof 연산자는 좌항에 객체가, 우항에는 타입이 오는데, �
 
 추상 클래스를 선언하는 경우 class 앞에 abstract를 붙여야 합니다. 추상 클래스는 자기 자신의 객체를 new 연산자를 통해 생성할 수 없고 오로지 자식 클래스만 만들 수 있습니다. 그러나, 추상 클래스는 자식 객체가 생성될 때, 부모 클래스의 생성자를 호출하므로, 추상 클래스도 직접 호출할 수는 없지만, 생성자가 필요합니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/Phone.java#L1-L17
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/BrandPhone.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/Main.java#L1-L9
 
 ### 추상 메소드 오버라이딩
 
 추상 클래스로 공통적인 부분을 잡았다고 하더라도, 자식 클래스가 메소드를 재정의해야하는 상황이 발생할 수도 있습니다. 추상 메소드를 선언한다면 위의 문제를 해결할 수 있씁니다. 추상 메소드는 abstract를 반환 타입 앞에 둬서 선언할 수 있고, 메소드 실행 내용이 없어, 중괄호가 포함되어 있지 않습니다. 추상 클래스 설계시, 자식 클래스가 반드시 실행 내용을 채워야 하는 경우 추상 메소드를 사용하여 자식 클래스가 반드시 메소드를 재정의하게 할 수 있습니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/Laptop.java#L1-L29
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/AppleLaptop.java#L1-L12
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/LGLaptop.java#L1-L13
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/SamsungLaptop.java#L1-L13
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/Main.java#L1-L31
+
 
 3가지 호출 방식을 통해, 메소드를 호출했습니다.
 
@@ -211,7 +225,8 @@ equals()는 비교 연산자인 ‘==’와 동일한 결과를 반환합니다.
 
 하지만, 참조 타입인 String과 같은 변수도 사용할 수 있는데, 이 경우 참조하는 값을 확인하는 것이 아닌 문자열이 동일한지를 조사하여 같으면 true, 아니면 false를 반환하게 합니다. String 클래스가 Object의 equals() 메소드를 오버라이딩했기 때문입니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/ObjectClass/MyClass.java#L1-L5
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/ObjectClass/Main.java#L1-L20
 
 ### hashCode()
 
