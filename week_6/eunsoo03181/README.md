@@ -10,7 +10,11 @@
 
 Java는 대표적인 객체 지향 프로그래밍 언어로, 상속을 지원합니다. 
 
-![Untitled](2%20%E1%84%89%E1%85%A1%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%2030a1740f60e44936a2b2ffdaa46973a8/Untitled.png)
+```Java
+public ChildClass extends ParentClass { }
+```
+
+
 
 Java의 상속은 다음과 같은 특징을 가지고 있습니다.
 
@@ -22,21 +26,13 @@ C++와 Python은 다중 상속을 지원하지만, Java는 지원하지 않습�
 
 private 멤버는 자신의 객 내에서만 호출할 수 있으므로, private 타입인 멤버를 상속받을 수 없으며, 추가적으로, 패키지가 다른 두 클래스 또한, default 타입인 경우 상속할 수 없습니다.
 
-### 상속의 단점
-
-하지만, 상속은 단점도 명백히 있어, 사용에 주의가 필요할 때가 있습니다.
-
 ---
 
 ## 클래스 상속
 
-![WEEK06.Inheritance1/InheritanceBasic.java](2%20%E1%84%89%E1%85%A1%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%2030a1740f60e44936a2b2ffdaa46973a8/Untitled%201.png)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/117c20ae8ee2c487cab74764779c86336dc84df0/week_6/eunsoo03181/assets/source/Inheritance/InheritanceBasic.java#L1-L90
 
-WEEK06.Inheritance1/InheritanceBasic.java
-
-![WEEK06.Inheritance1/Main.java](2%20%E1%84%89%E1%85%A1%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%2030a1740f60e44936a2b2ffdaa46973a8/Untitled%202.png)
-
-WEEK06.Inheritance1/Main.java
+https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/Inheritance/Main.java#L1-L11
 
 위의 코드에서 InheritanceBasic2 클래스는 InheritanceBasic을 상속받고 있습니다. 즉, InheritanceBasic2 객체를 생성하더라도, InheritanceBasic의 멤버를 사용할 수 있다는 뜻이며, this 참조를 통해, 부모 필드를 자신의 필드로 사용할 수 있습니다. InheritanceBasic의 필드는 모두 protected 제어자이기 때문에 자식 클래스는 부모 클래스의 필드값을 호출할 수 있습니다.
 
@@ -50,7 +46,10 @@ WEEK06.Inheritance1/Main.java
 
 자식 클래스에서 부모 클래스의 생성자가 명시적으로 선언되지 않은 경우, 부모 클래스의 기본 생정자를 생성합니다. 컴파일러는 super();를 첫 줄에 추가하는데, 이는 부모의 기본 생성자를 호출합니다. 위의 코드의 경우 부모 클래스에 직접 생성자를 선언하지 않았기 때문에 문제 없이 실행됩니다. 명시적으로 부모 생성자를 호출하고 싶다면 자식 생성자 내에 super 키워드를 사용하여 나타낼 수 있습니다.
 
-(예시 1-2 3-4)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/SuperKeyword/SuperKeyword.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/SuperKeyword/SuperKeyword2.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/SuperKeyword/SuperKeyword3.java#L1-L11
+https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/SuperKeyword/SuperKeyword4.java#L1-L7
 
 위의 SuperKeyword 클래스는 SuperKeyword2에게 상속을 하고, SuperKeyword3는 SuperKeyword4를 상속합니다. 부모 클래스에 선언된 생성자에 따라 super() 내의 매개값이 달라질 수 있습니다. super 키워드는 반드시 첫 줄에 위치하며, 매개값의 타입과 일치해야 합니다.
 
@@ -73,9 +72,12 @@ ex) 부모 메소드가 protected인 경우, 자식 메소드는 더 좁은 범�
 
 메소드가 오버라이딩된 경우 부모 객체의 메소드는 숨겨지므로, 자식 객체에서 메소드를 호출하면 오버라이딩된 자식 메소드가 호출됩니다.
 
-(오버라이딩 예시 - 원의 넓이 구하는 것 확장. 3.14 → Math.PI)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/Override/CircleCal.java#L1-L14
+https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/Override/BetterCircle.java#L1-L13
+https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/Override/Main.java#L1-L17
 
-위와 같이 *** 메소드가 오버라이딩되어 더 정확한 값을 반환하고 있는 것을 확인할 수 있습니다. @override는 어노테이션(Annotation)으로, 주석(Comment)과 비슷한 역할을 합니다. 어노테이션은 컴파일러에게 문법 에러를 체크하도록, 프로그램 빌드시 코드를 자동으로 생성할 수 있도록, 런타임에 특정 기능을 실행하도록 정보를 제공합니다. 어노테이션은 @를 사용하여 작성하며, 해당 타겟에 대한 동작을 수행하는 프로그램 외에는 다른 프로그램에게 영향을 주지 않습니다.
+
+위와 같이 getArea() 메소드가 오버라이딩되어 더 정확한 값을 반환하고 있는 것을 확인할 수 있습니다. @override는 어노테이션(Annotation)으로, 주석(Comment)과 비슷한 역할을 합니다. 어노테이션은 컴파일러에게 문법 에러를 체크하도록, 프로그램 빌드시 코드를 자동으로 생성할 수 있도록, 런타임에 특정 기능을 실행하도록 정보를 제공합니다. 어노테이션은 @를 사용하여 작성하며, 해당 타겟에 대한 동작을 수행하는 프로그램 외에는 다른 프로그램에게 영향을 주지 않습니다.
 
 ### 부모 메소드 호출
 
@@ -96,12 +98,6 @@ final 키워드는 해당 선언이 최종 상태이고 수정될 수 없음을 
 ### final 메소드
 
 final 메소드는 최종적인 메소드이므로, 자식 클래스가 메소드 오버라이딩을 하지 못하도록 합니다.
-
----
-
-## 다이나믹 메소드 디스패치
-
-메소드 디스패치(Method Dispatch)는 어떤 메소드를 호출할 것인가를 결정하고 실행하는 과정을 의미합니다. 컴파일 시점에서, 컴파일러가 특정 메소드를 호출할 것을 명확하게 알고 있는 경우를 정적 디스패치(Static Dispatch)라고 합니다.
 
 ---
 
