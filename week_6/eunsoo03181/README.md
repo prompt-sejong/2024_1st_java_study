@@ -21,8 +21,9 @@ Java의 상속은 다음과 같은 특징을 가지고 있습니다.
 1. **여러 개의 부모 클래스를 상속할 수 없음. (다중 상속 불가)**
 
 C++와 Python은 다중 상속을 지원하지만, Java는 지원하지 않습니다. 따라서, extends 뒤에는 하나의 부모 클래스만 올 수 있습니다.
+<br/>
 
-1. **private 접근 제한인 멤버를 상속받을 수 없음.**
+2. **private 접근 제한인 멤버를 상속받을 수 없음.**
 
 private 멤버는 자신의 객 내에서만 호출할 수 있으므로, private 타입인 멤버를 상속받을 수 없으며, 추가적으로, 패키지가 다른 두 클래스 또한, default 타입인 경우 상속할 수 없습니다.
 
@@ -42,7 +43,7 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e
 
 부모가 없으면, 자식도 없듯 JVM에서 자식 클래스를 생성할 경우 부모 객체가 우선적으로 생성되고, 후에 자식 객체가 생성됩니다. 
 
-![KakaoTalk_20240426_211048468.jpg](2%20%E1%84%89%E1%85%A1%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%2030a1740f60e44936a2b2ffdaa46973a8/KakaoTalk_20240426_211048468.jpg)
+![](assets/img/img1.jpg)
 
 자식 클래스에서 부모 클래스의 생성자가 명시적으로 선언되지 않은 경우, 부모 클래스의 기본 생정자를 생성합니다. 컴파일러는 super();를 첫 줄에 추가하는데, 이는 부모의 기본 생성자를 호출합니다. 위의 코드의 경우 부모 클래스에 직접 생성자를 선언하지 않았기 때문에 문제 없이 실행됩니다. 명시적으로 부모 생성자를 호출하고 싶다면 자식 생성자 내에 super 키워드를 사용하여 나타낼 수 있습니다.
 
@@ -64,11 +65,14 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e
 메소드 오버라이딩은 다음과 같은 조건을 만족해야할 수 있습니다.
 
 1. **부모의 메소드와 동일한 시그니처(반환값, 메소드명, 매개 변수 목록)을 가져야 함.**
+<br/>
+
 2. **접근 제한을 더 강하게 오버라이딩할 수 없음.**
 
 ex) 부모 메소드가 protected인 경우, 자식 메소드는 더 좁은 범위인 private로 오버라이딩 불가하지만, public 또는 default로 오버라이딩이 가능합니다.
+<br/>
 
-1. **새로운 예외(Exception)를 throws 할 수 없음.**
+3. **새로운 예외(Exception)를 throws 할 수 없음.**
 
 메소드가 오버라이딩된 경우 부모 객체의 메소드는 숨겨지므로, 자식 객체에서 메소드를 호출하면 오버라이딩된 자식 메소드가 호출됩니다.
 
@@ -92,10 +96,12 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e
 ## final 클래스와 final 메소드
 
 final 키워드는 해당 선언이 최종 상태이고 수정될 수 없음을 뜻합니다. 필드에 사용할 경우, 초기값 설정 이후 값을 변경할 수 없어 상수로도 사용됩니다.
+<br/>
 
 ### final 클래스
 
 클래스 선언시 final 키워드를 class 앞에 붙이면, 이 클래스는 최종적인 클래스를 의미하게 되어 상속할 수 없는 클래스가 됩니다. 즉, final 클래스는 부모 클래스가 될 수 없어 자식 클래스를 만들 수 없게 됩니다.
+<br/>
 
 ### final 메소드
 
@@ -108,6 +114,7 @@ final 메소드는 최종적인 메소드이므로, 자식 클래스가 메소�
 다형성(Polymorphism)이란, 하나의 변수 또는 메소드가 상황에 따라 다른 의미로 해석될 수 있는 것을 의미하고, 객체 지향 프로그래밍의 주요 요소입니다. 이를 통해, 다양한 객체를 이용해 다양한 실행결과를 만들 수 있습니다. 
 
 다형성을 구현하기 위해서는, 메소드 재정의와 타입 변환이 필요합니다.
+<br/>
 
 ### 자동 타입 변환
 
@@ -131,7 +138,8 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e
 https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/PromotionAndOverriding/Child.java#L1-L13
 https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/PromotionAndOverriding/Main.java#L1-L14
 
-(사진 정리 예시)
+![](assets/img/img2.jpg)
+<br/>
 
 ### 필드의 다형성
 
@@ -144,7 +152,7 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e
 https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/Polymorphism/Main.java#L1-L30
 
 배터리 수명을 다한 배터리를 교체할 때, Apple과 Samsung의 배터리로 교체를 했습니다. 이때, Machine 객체의 필드인 battery1~4에 AppleBattery와 SamsungBattery 객체를 대입하여 자동 타입 변환을 일으키고 있습니다. 객체가 교체된 이후에도 계속 코드는 정상적으로 실행됩니다. 
-
+<br/>
 ### 매개변수의 다형성
 
 메소드를 호출할 때, 매개값을 다양화하기 위해 매개 변수에 객체를 지정할 수도 있습니다.
@@ -155,7 +163,7 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b
 https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Bus.java#L1-L8
 https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Vehicle.java#L1-L7
 https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Main.java#L1-L15
-
+<br/>
 ### 강제 타입 변환
 
 강제 타입 변환(casting)은 부모 타입을 자식 타입으로 변환하는 것을 의미하며, 변수의 캐스팅과 같이 항상 변환될 수 있는 것은 아닙니다. 객체의 강제 타입 변환은 자식 타입이 부모 타입으로 자동 타입 변환된 후에 다시 자식 타입으로 변환될 때만 사용할 수 있습니다.
@@ -165,7 +173,7 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b
 https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Casting/Parent.java#L1-L15
 https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Casting/Child.java#L1-L17
 https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Casting/Main.java#L1-L20
-
+<br/>
 ### 객체 타입 확인
 
 강제 타입 변환은 자식 타입이 부모 타입으로 변환된 상태에서 다시 자식 타입으로 변환할 때만 사용 가능하기에 처음부터 부모 타입으로 생성된 객체는 자식 타입으로 변환할 수없습니다. 코드가 짧다면 크게 문제가 안 될 수 있지만, 코드가 길다면, 이를 찾는 것이 어려울 수도 있습니다. 이때 사용한 것이 instanceof 연산자입니다. 
@@ -185,7 +193,7 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f4273
 ### 추상 클래스 용도
 
 추상 클래스를 사용하는 이유는 공통된 필드와 메소드의 이름을 통일하고, 실체 클래스를 작성할 때의 시간을 절약하기 위해 사용됩니다. 
-
+<br/>
 ### 추상 클래스 선언
 
 추상 클래스를 선언하는 경우 class 앞에 abstract를 붙여야 합니다. 추상 클래스는 자기 자신의 객체를 new 연산자를 통해 생성할 수 없고 오로지 자식 클래스만 만들 수 있습니다. 그러나, 추상 클래스는 자식 객체가 생성될 때, 부모 클래스의 생성자를 호출하므로, 추상 클래스도 직접 호출할 수는 없지만, 생성자가 필요합니다.
@@ -193,7 +201,7 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f4273
 https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/Phone.java#L1-L17
 https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/BrandPhone.java#L1-L7
 https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/Main.java#L1-L9
-
+<br/>
 ### 추상 메소드 오버라이딩
 
 추상 클래스로 공통적인 부분을 잡았다고 하더라도, 자식 클래스가 메소드를 재정의해야하는 상황이 발생할 수도 있습니다. 추상 메소드를 선언한다면 위의 문제를 해결할 수 있씁니다. 추상 메소드는 abstract를 반환 타입 앞에 둬서 선언할 수 있고, 메소드 실행 내용이 없어, 중괄호가 포함되어 있지 않습니다. 추상 클래스 설계시, 자식 클래스가 반드시 실행 내용을 채워야 하는 경우 추상 메소드를 사용하여 자식 클래스가 반드시 메소드를 재정의하게 할 수 있습니다.
@@ -216,7 +224,7 @@ Java에서 클래스가 그 어떤 클래스로부터 상속받지 않을 때, O
 Object 클래스는 필드가 존재하지 않고 11개의 메소드로만 구성되어 있고, 모든 클래스에서 이용할 수 있다는 특징이 있습니다.
 
 Object 클래스의 대표적인 메소드로는 equals(), toString()이 있습니다. 모든 클래스는 Object 클래스의 자식 클래스이기 때문에, 메소드들은 오버라이딩될 수도 있습니다.
-
+<br/>
 ### equals()
 
 Object 클래스에서 equals() 메소드는 ‘public boolean equals(Object obj) { … }’와 같은 형태를 가집니다. 매개변수로 Object를 받으므로 모든 자식 타입이 올 수 있습니다.
@@ -225,13 +233,13 @@ equals()는 비교 연산자인 ‘==’와 동일한 결과를 반환합니다.
 
 하지만, 참조 타입인 String과 같은 변수도 사용할 수 있는데, 이 경우 참조하는 값을 확인하는 것이 아닌 문자열이 동일한지를 조사하여 같으면 true, 아니면 false를 반환하게 합니다. String 클래스가 Object의 equals() 메소드를 오버라이딩했기 때문입니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/ObjectClass/MyClass.java#L1-L5
-https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/ObjectClass/Main.java#L1-L20
-
+https://github.com/eunsoo03181/2024_1st_java_study/blob/4b5f7dfef27c5e576dabf8f0e06b55437ca51779/week_6/eunsoo03181/assets/src/ObjectClass/MyClass.java#L1-L5
+<br/>
 ### toString()
 
 toString() 메소드는 해당 인스턴스에 대한 정보를 문자열로 반환합니다. 반환되는 문자열은 클래스 이름과 함께 구분자로 '@'가 사용되며, 그 뒤로 16진수 해시 코드(Hash Code)가 추가됩니다.
 
 16진수 해시 코드 값은 인스턴스의 주소를 가리키는 값으로, 인스턴스마다 모두 다르게 반환됩니다. 하지만, toString()은 String을 통해 오버라이딩하여 저장한 문자열을 반환하게 할 수 있습니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/4b5f7dfef27c5e576dabf8f0e06b55437ca51779/week_6/eunsoo03181/assets/src/ObjectClass/Overriding.java#L1-L16
+https://github.com/eunsoo03181/2024_1st_java_study/blob/4b5f7dfef27c5e576dabf8f0e06b55437ca51779/week_6/eunsoo03181/assets/src/ObjectClass/Main.java#L1-L33
