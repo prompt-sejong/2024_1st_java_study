@@ -30,9 +30,9 @@ private 멤버는 자신의 객 내에서만 호출할 수 있으므로, private
 
 ## 클래스 상속
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/117c20ae8ee2c487cab74764779c86336dc84df0/week_6/eunsoo03181/assets/source/Inheritance/InheritanceBasic.java#L1-L90
+https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e0c40a55fba3aa8ae/week_6/eunsoo03181/assets/src/Inheritance/InheritanceBasic.java#L1-L90
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/Inheritance/Main.java#L1-L11
+https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e0c40a55fba3aa8ae/week_6/eunsoo03181/assets/src/Inheritance/Main.java#L1-L11
 
 위의 코드에서 InheritanceBasic2 클래스는 InheritanceBasic을 상속받고 있습니다. 즉, InheritanceBasic2 객체를 생성하더라도, InheritanceBasic의 멤버를 사용할 수 있다는 뜻이며, this 참조를 통해, 부모 필드를 자신의 필드로 사용할 수 있습니다. InheritanceBasic의 필드는 모두 protected 제어자이기 때문에 자식 클래스는 부모 클래스의 필드값을 호출할 수 있습니다.
 
@@ -46,10 +46,10 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e072770
 
 자식 클래스에서 부모 클래스의 생성자가 명시적으로 선언되지 않은 경우, 부모 클래스의 기본 생정자를 생성합니다. 컴파일러는 super();를 첫 줄에 추가하는데, 이는 부모의 기본 생성자를 호출합니다. 위의 코드의 경우 부모 클래스에 직접 생성자를 선언하지 않았기 때문에 문제 없이 실행됩니다. 명시적으로 부모 생성자를 호출하고 싶다면 자식 생성자 내에 super 키워드를 사용하여 나타낼 수 있습니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/SuperKeyword/SuperKeyword.java#L1-L7
-https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/SuperKeyword/SuperKeyword2.java#L1-L7
-https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/SuperKeyword/SuperKeyword3.java#L1-L11
-https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/SuperKeyword/SuperKeyword4.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e0c40a55fba3aa8ae/week_6/eunsoo03181/assets/src/SuperKeyword/SuperKeyword.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e0c40a55fba3aa8ae/week_6/eunsoo03181/assets/src/SuperKeyword/SuperKeyword2.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e0c40a55fba3aa8ae/week_6/eunsoo03181/assets/src/SuperKeyword/SuperKeyword3.java#L1-L11
+https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e0c40a55fba3aa8ae/week_6/eunsoo03181/assets/src/SuperKeyword/SuperKeyword4.java#L1-L7
 
 위의 SuperKeyword 클래스는 SuperKeyword2에게 상속을 하고, SuperKeyword3는 SuperKeyword4를 상속합니다. 부모 클래스에 선언된 생성자에 따라 super() 내의 매개값이 달라질 수 있습니다. super 키워드는 반드시 첫 줄에 위치하며, 매개값의 타입과 일치해야 합니다.
 
@@ -72,9 +72,9 @@ ex) 부모 메소드가 protected인 경우, 자식 메소드는 더 좁은 범�
 
 메소드가 오버라이딩된 경우 부모 객체의 메소드는 숨겨지므로, 자식 객체에서 메소드를 호출하면 오버라이딩된 자식 메소드가 호출됩니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/Override/CircleCal.java#L1-L14
-https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/Override/BetterCircle.java#L1-L13
-https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e07277095b9489f0fc534a4/week_6/eunsoo03181/assets/source/Override/Main.java#L1-L17
+https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e0c40a55fba3aa8ae/week_6/eunsoo03181/assets/src/Override/CircleCal.java#L1-L14
+https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e0c40a55fba3aa8ae/week_6/eunsoo03181/assets/src/Override/BetterCircle.java#L1-L13
+https://github.com/eunsoo03181/2024_1st_java_study/blob/256c28d917e906b16058fe0e0c40a55fba3aa8ae/week_6/eunsoo03181/assets/src/Override/Main.java#L1-L17
 
 
 위와 같이 getArea() 메소드가 오버라이딩되어 더 정확한 값을 반환하고 있는 것을 확인할 수 있습니다. @override는 어노테이션(Annotation)으로, 주석(Comment)과 비슷한 역할을 합니다. 어노테이션은 컴파일러에게 문법 에러를 체크하도록, 프로그램 빌드시 코드를 자동으로 생성할 수 있도록, 런타임에 특정 기능을 실행하도록 정보를 제공합니다. 어노테이션은 @를 사용하여 작성하며, 해당 타겟에 대한 동작을 수행하는 프로그램 외에는 다른 프로그램에게 영향을 주지 않습니다.
@@ -83,7 +83,9 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/c60741a6199a1ed96e072770
 
 자식 클래스가 메소드 오버라이딩을 한 경우 기존 부모의 메소드는 숨겨지며, 이를 호출하기 위해서는 super 키워드를 사용하여 부모 메소드를 호출할 수 있습니다.
 
-(super.메소드명 호출 예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/SuperOverride/BatteryControlCenter.java#L1-L41
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/SuperOverride/BetterBatteryControlCenter.java#L1-L105
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/SuperOverride/Main.java#L1-L89
 
 ---
 
@@ -113,17 +115,21 @@ final 메소드는 최종적인 메소드이므로, 자식 클래스가 메소�
 
 자동 타입 변환은 자식이 부모의 특징과 기능을 상속받기 때문에 부모와 동일하게 취급될 수 있다는 원리로 작동합니다. 즉, 자식은 부모 타입으로 자동 타입 변환이 가능합니다. 
 
-(person student)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/Promotion/Person.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/Promotion/Student.java#L1-L6
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/Promotion/Main.java#L1-L15
 
 위의 코드에서, Student 클래스는 Person 클래스로부터 상속을 받으므로, 자식 객체로 정의할 수도 있으며 두 변수는 동일한 객체를 참조하게 됩니다. 또한, 부모 객체는 자식 클래스의 생성자를 통해 생성할 수 있습니다. 이는, 자식 클래스의 생성자가 부모 클래스의 생성자를 포함했기 때문입니다. 
 
 다음은 A - B - D, A - C - E로 상속 관계인 클래스입니다.
 
-(예시 - ABCDE)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/Promotion2/Main.java#L1-L33
 
 조건을 만족할 경우 프로모션이 발생합니다. 부모 타입으로 자동 변환된 이후에는 부모 클래스의 멤버만 접근할 수 있게 됩니다. 비록, 자식 객체를 참조하지만, 접근 가능한 멤버는 부모 클래스로 한정됩니다. 그러나, 자식 클래스에서 메소드가 오버라이딩된 경우 자식 클래스의 메소드가 대신 호출됩니다.
 
-(예시 - parent child)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/PromotionAndOverriding/Parent.java#L1-L10
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/PromotionAndOverriding/Child.java#L1-L13
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/PromotionAndOverriding/Main.java#L1-L14
 
 (사진 정리 예시)
 
@@ -131,7 +137,11 @@ final 메소드는 최종적인 메소드이므로, 자식 클래스가 메소�
 
 이것만 본다면, 자동 타입 변환의 필요성을 느끼기 어렵습니다. 자식 타입을 처음부터 사용하면 되기 때문입니다. 위와 같은 작업을 하는 이유는 다형성을 구현하기 위해서입니다. 필드의 타입을 부모 타입으로 선언한다면 다양한 자식 객체들이 저장될 수 있어 필드 사용 결과가 달라질 수 있습니다. 자동차의 부품이 더 좋은 것으로 교체되는 것처럼, 객체 지향 프로그래밍에서도 객체들이 다른 객체로 교체될 수도 있어야 합니다.
 
-(다형성 코드 예시 battery machine)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/Polymorphism/Battery.java#L1-L24
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/Polymorphism/AppleBattery.java#L1-L20
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/Polymorphism/SamsungBattery.java#L1-L20
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/Polymorphism/Machine.java#L1-L28
+https://github.com/eunsoo03181/2024_1st_java_study/blob/fe2ca6f70da1d0b88eaac95e76083558a54c7668/week_6/eunsoo03181/assets/src/Polymorphism/Main.java#L1-L30
 
 배터리 수명을 다한 배터리를 교체할 때, Apple과 Samsung의 배터리로 교체를 했습니다. 이때, Machine 객체의 필드인 battery1~4에 AppleBattery와 SamsungBattery 객체를 대입하여 자동 타입 변환을 일으키고 있습니다. 객체가 교체된 이후에도 계속 코드는 정상적으로 실행됩니다. 
 
@@ -141,7 +151,10 @@ final 메소드는 최종적인 메소드이므로, 자식 클래스가 메소�
 
 Bus 클래스는 Vehicle로부터 상속을 받고 있고, 매개변수를 Bus로 선언하게 된 경우 자동 타입 변환이 발생합니다. 매개변수의 타입이 클래스일 경우, 해당 클래스의 객체뿐만 아니라 자식 객체의 매개값도 사용할 수 있습니다. 자식 객체가 메소드를 오버라이딩한 경우 메소드의 실행 결과도 마찬가지로 재정의됩니다.
 
-(예시, Vehicle Driver)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Vehicle.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Bus.java#L1-L8
+https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Vehicle.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/428d9a1f537f43f8646f4d2b535b082e0627fd7b/week_6/eunsoo03181/assets/src/Polymorphism2/Main.java#L1-L15
 
 ### 강제 타입 변환
 
@@ -149,7 +162,9 @@ Bus 클래스는 Vehicle로부터 상속을 받고 있고, 매개변수를 Bus�
 
 즉, 위와 같은 경우에만 강제 타입 변환이 가능해집니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Casting/Parent.java#L1-L15
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Casting/Child.java#L1-L17
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Casting/Main.java#L1-L20
 
 ### 객체 타입 확인
 
@@ -157,7 +172,9 @@ Bus 클래스는 Vehicle로부터 상속을 받고 있고, 매개변수를 Bus�
 
 instanceof 연산자는 좌항에 객체가, 우항에는 타입이 오는데, 좌항의 객체가 우항의 인스턴스(instance)면 true를, 아니면 false를 반환합니다. 다음과 같이 조건을 확인한 후에 강제 타입 변환을 한다면 코드의 오류(ClassCastException)를 줄일 수 있습니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/InstanceOf/Parent.java#L1-L4
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/InstanceOf/Child.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/InstanceOf/Main.java#L1-L10
 
 ---
 
@@ -173,13 +190,20 @@ instanceof 연산자는 좌항에 객체가, 우항에는 타입이 오는데, �
 
 추상 클래스를 선언하는 경우 class 앞에 abstract를 붙여야 합니다. 추상 클래스는 자기 자신의 객체를 new 연산자를 통해 생성할 수 없고 오로지 자식 클래스만 만들 수 있습니다. 그러나, 추상 클래스는 자식 객체가 생성될 때, 부모 클래스의 생성자를 호출하므로, 추상 클래스도 직접 호출할 수는 없지만, 생성자가 필요합니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/Phone.java#L1-L17
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/BrandPhone.java#L1-L7
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/Main.java#L1-L9
 
 ### 추상 메소드 오버라이딩
 
 추상 클래스로 공통적인 부분을 잡았다고 하더라도, 자식 클래스가 메소드를 재정의해야하는 상황이 발생할 수도 있습니다. 추상 메소드를 선언한다면 위의 문제를 해결할 수 있씁니다. 추상 메소드는 abstract를 반환 타입 앞에 둬서 선언할 수 있고, 메소드 실행 내용이 없어, 중괄호가 포함되어 있지 않습니다. 추상 클래스 설계시, 자식 클래스가 반드시 실행 내용을 채워야 하는 경우 추상 메소드를 사용하여 자식 클래스가 반드시 메소드를 재정의하게 할 수 있습니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/Laptop.java#L1-L29
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/AppleLaptop.java#L1-L12
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/LGLaptop.java#L1-L13
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/SamsungLaptop.java#L1-L13
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/Main.java#L1-L31
+
 
 3가지 호출 방식을 통해, 메소드를 호출했습니다.
 
@@ -201,7 +225,8 @@ equals()는 비교 연산자인 ‘==’와 동일한 결과를 반환합니다.
 
 하지만, 참조 타입인 String과 같은 변수도 사용할 수 있는데, 이 경우 참조하는 값을 확인하는 것이 아닌 문자열이 동일한지를 조사하여 같으면 true, 아니면 false를 반환하게 합니다. String 클래스가 Object의 equals() 메소드를 오버라이딩했기 때문입니다.
 
-(예시)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/ObjectClass/MyClass.java#L1-L5
+https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/ObjectClass/Main.java#L1-L20
 
 ### toString()
 
