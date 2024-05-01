@@ -10,7 +10,7 @@ class LinkedList {
 
     // 새로운 노드를 리스트의 끝에 추가하는 메소드
     void append(int data) {
-        Node newNode = new Node(data, null);
+        Node newNode = new Node(data);
         // 리스트가 비어있는 경우
         if (head == null) {
             head = newNode;

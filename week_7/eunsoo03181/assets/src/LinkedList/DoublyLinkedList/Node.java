@@ -1,11 +1,13 @@
-package DataStructure.LinkedList.SimplyLinkedList;
+package DataStructure.LinkedList.DoublyLinkedList;
 
 class Node {
     int data;
-    Node next; // 객체 참조
+    Node prev;
+    Node next;
 
     Node(int data) {
         this.data = data;
+        this.prev = null;
         this.next = null;
     }
 }

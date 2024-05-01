@@ -5,39 +5,29 @@ import java.util.Scanner;
 public class ImprovedLinkedList extends LinkedList {
     // 특정 위치에 데이터를 추가하는 메소드
     void insert(int data, int n) {
-        if (n <= 0) {
-            System.out.println("오류: 유효하지 않은 범위입니다.");
-            return;
-        }
+        // 자리를 보정합니다.
+        n = n - 1;
         // 첫 번째 노드에 추가하는 경우
-        if (n == 1 || head == null) {
-            Node newNode = new Node(data, head);
+        Node newNode = new Node(data);
+        if (n == 0) {
+            // 추가할 노드가 1번째 노드 참조
+            newNode.next = head;
+            // 추가한 노드를 1번째 노드로 변경
             head = newNode;
             return;
         }
-
         Node current = head;
-
-        // 해당 노드로 이동
-        for (int i=1; i<n-1; i++) {
-            // 입력 값이 리스트의 범위를 초과한 경우
-            if (current == null) {
-                System.out.println("오류: 입력한 값이 범위를 초과하였습니다.");
-                return;
-            }
+        for (int i = 0; i < n - 1 && current != null; i++) {
             current = current.next;
         }
-        // 마지막 노드였을 경우
         if (current == null) {
-            System.out.println("오류: 입력한 값이 범위를 초과하였습니다.");
+            System.out.println("오류: 유효하지 않은 범위입니다.");
             return;
         }
-        // current는 newNode의 전에 있는 노드.
-        // newNode는 current 노드의 다음 노드를 참조.
-        Node newNode = new Node(data, current.next);
-        // current 노드의 다음 노드는 newNode를 참조.
+        // 새로운 노드가 현재 노드의 다음을 참조
+        newNode.next = current.next;
+        // 현재 노드가 새로운 노드를 참조하게 변경
         current.next = newNode;
-        // current -> newNode -> current.next (->는 참조를 의미)
     }
 
     // 특정 위치의 노드를 삭제하는 메소드.
