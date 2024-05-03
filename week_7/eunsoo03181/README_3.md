@@ -325,6 +325,19 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec807
 <br/>
 
 ### append() 메소드 작동 방식
+```Java
+public void append(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            return;
+        }
+        tail.next = newNode;
+        newNode.prev = tail;
+        tail = newNode;
+    }
+```
 
 (1) 새로운 노드(newNode)에 데이터를 입력합니다.
 
@@ -341,6 +354,44 @@ append() 메소드의 시간 복잡도는 O(n)입니다.
 <br/>
 
 ### insert() 메소드 작동 방식
+```Java
+void insert(int data, int n) {
+        // n의 값을 보정합니다.
+        n = n-1;
+        Node newNode = new Node(data);
+        // 1번째 노드에 입력하는 경우
+        if (n==0) {
+            // newNode가 참조하는 다음 노드를 기존 1번째 노드로 변경
+            newNode.next = head;
+            // 1번째 노드가 참조하는 전 노드를 newNode로 지정
+            head.prev = newNode;
+            // 1번째 노드를 newNode로 지정
+            head = newNode;
+            return;
+        }
+        Node current = head;
+        for (int i=0; i<n-1 && current != null; i++) {
+            current = current.next;
+        }
+        if (current == null) {
+            System.out.println("오류: 유효하지 않은 범위입니다.");
+            return;
+        }
+        // 새로운 노드의 다음 노드가 현재 노드의 다음 노드를 참조하게 변경
+        newNode.next = current.next;
+        // 현재 노드가 마지막 노드가 아닌 경우, 마지막 노드가 참조하는 노드의 이전을 newNode가 참조하게 변경.
+        if (current.next != null) {
+            current.next.prev = newNode;
+        }
+        else {
+            tail = newNode; //current가 마지막 노드인 경우 tail을 업데이트
+        }
+        // 현재 노드가 다음 노드로 newNode를 참조
+        current.next = newNode;
+        // newNode가 이전 노드로 현재 노드를 참조
+        newNode.prev = current;
+    }
+```
 
 (1) 프로그램 내에서의 자릿수와 사용자의 자릿수가 다르므로, 보정을 해주고 새로운 노드(newNode)에 데이터를 입력합니다.
 
@@ -363,6 +414,39 @@ insert() 메소드의 시간 복잡도는 O(n)입니다.
 <br/>
 
 ### remove() 메소드 작동 방식
+```Java
+void remove(int data) {
+        Node current = head;
+
+        // 헤드 노드부터 시작하여 값이 일치하는 노드를 찾음
+        while (current != null) {
+            if (current.data == data) {
+                if (current == head) {
+                    // 현재 노드를 1번째 노드로 변경
+                    head = current.next;
+                    if (head != null) {
+                        // head가 이전 노드를 참조하지 않도록 변경
+                        head.prev = null;
+                    }
+                    // 리스트가 비어있는 경우, 마지막 노드도 제거
+                    if (head == null) {
+                        tail = null;
+                    }
+                }
+                else if (current == tail) {
+                    tail = current.prev; // tail을 이전 노드로 변경
+                    tail.next = null; // 변경된 마지막 노드가 다음 노드를 참조하지 않도록 변경
+                } else {
+                    // 시작과 끝이 아닌 경우
+                    current.prev.next = current.next; // 이전 노드의 다음 노드를 현재 노드의 다음 노드를 참조하도록 설정
+                    current.next.prev = current.prev; // 다음 노드의 이전 노드를 현재 노드의 이전 노드를 참조하도록 설정
+                }
+                return;
+            }
+            current = current.next;
+        }
+    }
+```
 
 (1) 입력한 값이 시작 노드(head)에 있을 경우, 시작 노드를 현재 노드로 변경합니다.
 
@@ -385,6 +469,16 @@ remove() 메소드의 시간 복잡도는 O(n)입니다.
 <br/>
 
 ### display() 메소드 작동 방식
+```Java
+void display() {
+    Node current = head;
+    while (current != null) {
+        System.out.print(current.data + " -> ");
+        current = current.next;
+    }
+    System.out.println();
+    }
+```
 
 단순 연결 리스트와 동일하므로, 생략합니다. 시간 복잡도는 O(n)입니다.
 
@@ -419,6 +513,20 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec807
 https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec80745008924bf3f8ecc/week_7/eunsoo03181/assets/src/LinkedList/CircularLinkedList/CircularLinkedList.java#L1-L71
 
 ### append() 메소드 작동 방식
+```Java
+public void append(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            newNode.next = head; // 리스트가 비어있을 때는 자기 자신을 가리킴
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+            tail.next = head; // tail의 다음 노드는 head를 가리킴 (원형)
+        }
+    }
+```
 
 (1) 새로운 노드(newNode)에 입력한 값을 저장합니다.
 
@@ -433,6 +541,39 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec807
 <br/>
 
 ### remove() 메소드 작동 방식
+```Java
+void remove(int data) {
+        if (head == null) {
+            System.out.println("오류: 리스트가 비어 있습니다.");
+            return;
+        }
+
+        Node current = head;
+        Node prev = null;
+
+        // 리스트를 순회하며 값을 찾음
+        do {
+            if (current.data == data) {
+                // 특정한 값을 찾았을 때
+                if (prev != null) {
+                    prev.next = current.next;
+                    if (current == tail) {
+                        tail = prev; // 마지막 노드일 경우 tail 업데이트
+                    }
+                } else {
+                    // 첫 번째 노드를 삭제할 경우
+                    head = head.next;
+                    tail.next = head; // tail의 다음 노드는 head를 가리킴 (원형)
+                }
+                return;
+            }
+            prev = current;
+            current = current.next;
+        } while (current != head);
+
+        System.out.println("오류: 값이 리스트에 없습니다.");
+    }
+```
 
 (1) 리스트가 비어있는 경우, 비어있다고 알리고 반환합니다.
 
@@ -455,6 +596,20 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec807
 <br/>
 
 ### display() 메소드 작동 방식
+```Java
+public void display() {
+        Node current = head;
+        if (head == null) {
+            System.out.println("오류: 리스트가 비어 있습니다.");
+            return;
+        }
+        do {
+            System.out.print(current.data + " ");
+            current = current.next;
+        } while (current != head);
+        System.out.println();
+    }
+```
 
 단순 연결 리스트와 비슷하지만, 다시 현재 노드가 시작 노드로 돌아가면 실행을 종료합니다.
 
