@@ -105,11 +105,16 @@ Java로 프로그래밍을 하기 위해 우선, Intellij라는 IDE를 사용하
 
 클래스 이름을 HelloWorld로 지정했습니다. 코드는 다음과 같습니다.
 
-![HelloWorld.java](assets/img7.png)
+```Java
+package WEEK01;
 
-HelloWorld.java
-
-![](assets/img8.png)
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+[HelloWorld.java](https://gist.github.com/eunsoo03181/d61606072fd7124259f23dd70192ba38)
 
 Java를 통해, ‘Hello, World!’를 출력하는 프로그램입니다.
 
@@ -117,14 +122,10 @@ Java를 통해, ‘Hello, World!’를 출력하는 프로그램입니다.
 
 **클래스**(*Class*)란, 객체를 만들어내는 틀입니다. 클래스를 선언할 경우, 클래스명은 소스 파일명과 동일해야 한다는 특징을 가집니다.
 
-**객체**(*object*)는 자료를 저장하고 특정 기능을 수행합니다. 자료를 저장하기 위해서는 변수가 필요할 것이고, 특정 기능을 하기 위해서는 함수가 필요합니다. 즉, 객체는 변수와 함수를 묶은 것입니다.
+**객체**(*object*)는 자료를 저장하고 특정 기능을 수행합니다. 자료를 저장하기 위해서는 변수가 필요할 것이고, 특정 기능을 하기 위해서는 함수(메소드)가 필요합니다. 즉, 객체는 변수와 함수(메소드)를 묶은 것입니다.
 
-**메서드**(*Method*)는 객체 내의 함수를 의미합니다.
+**메소드**(*Method*)는 객체 내의 함수를 의미합니다.
 
 Java를 통해 바이트 코드 파일을 실행한다면, 클래스 블록 내부에 있는 **main() 메소드**를 실행하게 되며, 이는 프로그램 **실행 진입점**(*Entry Point*)라고 부릅니다.
 
 코드를 실행하게 된다면, 바이트코드가 생성됩니다. 바이트코드는 .class라는 확장자명을 가지며, 이 코드를 실행한 경우에도 동일한 결과가 출력됩니다.
-
----
-
-##
