@@ -954,19 +954,159 @@ public class Main {
 
 추상 클래스를 선언하는 경우 class 앞에 abstract를 붙여야 합니다. 추상 클래스는 자기 자신의 객체를 new 연산자를 통해 생성할 수 없고 오로지 자식 클래스만 만들 수 있습니다. 그러나, 추상 클래스는 자식 객체가 생성될 때, 부모 클래스의 생성자를 호출하므로, 추상 클래스도 직접 호출할 수는 없지만, 생성자가 필요합니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/Phone.java#L1-L17
-https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/BrandPhone.java#L1-L7
-https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/Abstract/Main.java#L1-L9
+```Java
+package WEEK06.Abstract;
+
+public abstract class Phone {
+    String model;
+    String AP;
+    int capacity;
+    int price;
+
+    Phone() { }
+
+    Phone(String model, String AP, int capacity, int price) {
+        this.model = model;
+        this.AP = AP;
+        this.capacity = capacity;
+        this.price = price;
+    }
+}
+```
+```Java
+package WEEK06.Abstract;
+
+public class BrandPhone extends Phone {
+    BrandPhone(String model, String AP, int capacity, int price) {
+        super(model, AP, capacity, price);
+    }
+}
+```
+```Java
+package WEEK06.Abstract;
+
+public class Main {
+    public static void main(String[] args) {
+        // 오류: Phone phone = new Phone();
+        BrandPhone galaxyS = new BrandPhone("Galaxy S 24 Ultra", "SnapDragon 8 Gen 3 for Galaxy", 256, 1299);
+        BrandPhone iPhone = new BrandPhone("iPhone 15 Pro Max", "A17 Pro", 256, 1199);
+    }
+}
+```
 <br/>
+
 ### 추상 메소드 오버라이딩
 
 추상 클래스로 공통적인 부분을 잡았다고 하더라도, 자식 클래스가 메소드를 재정의해야하는 상황이 발생할 수도 있습니다. 추상 메소드를 선언한다면 위의 문제를 해결할 수 있씁니다. 추상 메소드는 abstract를 반환 타입 앞에 둬서 선언할 수 있고, 메소드 실행 내용이 없어, 중괄호가 포함되어 있지 않습니다. 추상 클래스 설계시, 자식 클래스가 반드시 실행 내용을 채워야 하는 경우 추상 메소드를 사용하여 자식 클래스가 반드시 메소드를 재정의하게 할 수 있습니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/Laptop.java#L1-L29
-https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/AppleLaptop.java#L1-L12
-https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/LGLaptop.java#L1-L13
-https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/SamsungLaptop.java#L1-L13
-https://github.com/eunsoo03181/2024_1st_java_study/blob/9a4030683ee3082b996f42734aa849f7ca693d61/week_6/eunsoo03181/assets/src/AbstractOverriding/Main.java#L1-L31
+```Java
+package WEEK06.AbstractOverriding;
+
+public abstract class Laptop {
+    String brand;
+    String deviceName;
+    String CPU;
+    String OS;
+    int SSD;
+
+    Laptop(String brand, String deviceName, String CPU, String OS, int SSD) {
+        this.brand = brand;
+        this.deviceName = deviceName;
+        this.CPU = CPU;
+        this.OS = OS;
+        this.SSD = SSD;
+    }
+
+    void printAll() {
+        System.out.println("========기본 사양========");
+        System.out.println("제작: " + brand);
+        System.out.println("모델: " + deviceName);
+        System.out.println("프로세서: " + CPU);
+        System.out.println("운영체제: " + OS);
+        System.out.println("용량: " + SSD);
+        System.out.println("=======================");
+    }
+
+    abstract void addSSD();
+}
+```
+```Java
+package WEEK06.AbstractOverriding;
+
+public class AppleLaptop extends Laptop {
+    AppleLaptop(String brand, String deviceName, String CPU, String OS, int SSD) {
+        super(brand, deviceName, CPU, OS, SSD);
+    }
+
+    @Override
+    void addSSD() {
+        System.out.println("처음 구매한 스토리지를 늘릴 수 없습니다.");
+    }
+}
+```
+```Java
+package WEEK06.AbstractOverriding;
+
+public class LGLaptop extends Laptop {
+    LGLaptop(String brand, String deviceName, String CPU, String OS, int SSD) {
+        super(brand, deviceName, CPU, OS, SSD);
+    }
+
+    @Override
+    void addSSD() {
+        System.out.println("SSD 256GB를 추가하셨습니다.");
+        SSD += 256;
+    }
+}
+```
+```Java
+package WEEK06.AbstractOverriding;
+
+public class SamsungLaptop extends Laptop {
+    SamsungLaptop(String brand, String deviceName, String CPU, String OS, int SSD) {
+        super(brand, deviceName, CPU, OS, SSD);
+    }
+
+    @Override
+    void addSSD() {
+        System.out.println("SSD 512GB를 추가하셨습니다.");
+        SSD += 512;
+    }
+}
+```
+```Java
+package WEEK06.AbstractOverriding;
+
+public class Main {
+    public static void main(String[] args) {
+        // 일반적인 호출 방식입니다.
+        AppleLaptop al = new AppleLaptop("Apple", "MacBook Pro", "M3 Pro", "MacOS", 512);
+        LGLaptop ll = new LGLaptop("LG", "LG gram pro", "Intel Ultra 7 155H", "Windows 11 Home", 256);
+        SamsungLaptop sl = new SamsungLaptop("Samsung", "Galaxy Book 4 Pro", "Intel Ultra 5 125H", "Windows 11 Education", 512);
+
+        al.addSSD();
+        ll.addSSD();
+        sl.addSSD();
+
+        System.out.println();
+        // 자동 타입 변환을 이용한 호출 방식입니다.
+        Laptop laptop = null;
+        laptop = new AppleLaptop("Apple", "MacBook Pro", "M3 Pro", "MacOS", 512);
+        laptop.addSSD();
+        laptop = new LGLaptop("LG", "LG gram pro", "Intel Ultra 7 155H", "Windows 11 Home", 256);
+        laptop.addSSD();
+
+        System.out.println();
+        // 메소드의 다형성을 이용한 호출 방식입니다.
+        extraSSD(new LGLaptop("LG", "LG gram pro", "Intel Ultra 7 155H", "Windows 11 Home", 256));
+        extraSSD(new SamsungLaptop("Samsung", "Galaxy Book 4 Pro", "Intel Ultra 5 125H", "Windows 11 Education", 512));
+    }
+
+    public static void extraSSD(Laptop laptop) {
+        laptop.addSSD();
+    }
+}
+```
 
 
 3가지 호출 방식을 통해, 메소드를 호출했습니다.
@@ -989,13 +1129,71 @@ equals()는 비교 연산자인 ‘==’와 동일한 결과를 반환합니다.
 
 하지만, 참조 타입인 String과 같은 변수도 사용할 수 있는데, 이 경우 참조하는 값을 확인하는 것이 아닌 문자열이 동일한지를 조사하여 같으면 true, 아니면 false를 반환하게 합니다. String 클래스가 Object의 equals() 메소드를 오버라이딩했기 때문입니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/4b5f7dfef27c5e576dabf8f0e06b55437ca51779/week_6/eunsoo03181/assets/src/ObjectClass/MyClass.java#L1-L5
+```Java
+package WEEK06.ObjectClass;
+
+public class MyClass {
+
+}
+```
 <br/>
+
 ### toString()
 
 toString() 메소드는 해당 인스턴스에 대한 정보를 문자열로 반환합니다. 반환되는 문자열은 클래스 이름과 함께 구분자로 '@'가 사용되며, 그 뒤로 16진수 해시 코드(Hash Code)가 추가됩니다.
 
 16진수 해시 코드 값은 인스턴스의 주소를 가리키는 값으로, 인스턴스마다 모두 다르게 반환됩니다. 하지만, toString()은 String을 통해 오버라이딩하여 저장한 문자열을 반환하게 할 수 있습니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/4b5f7dfef27c5e576dabf8f0e06b55437ca51779/week_6/eunsoo03181/assets/src/ObjectClass/Overriding.java#L1-L16
-https://github.com/eunsoo03181/2024_1st_java_study/blob/4b5f7dfef27c5e576dabf8f0e06b55437ca51779/week_6/eunsoo03181/assets/src/ObjectClass/Main.java#L1-L33
+```Java
+package WEEK06.ObjectClass;
+
+public class Overriding {
+    String str1;
+    String str2;
+
+    Overriding(String str1, String str2) {
+        this.str1 = str1;
+        this.str2 = str2;
+    }
+
+    @Override
+    public String toString() {
+        return str1 + ", " + str2;
+    }
+}
+```
+```Java
+package WEEK06.ObjectClass;
+
+public class Main {
+    public static void main(String[] args) {
+        MyClass obj1 = new MyClass();
+        MyClass obj2 = new MyClass();
+
+        // 둘이 같은 결과를 반환합니다.
+        boolean result1 = obj1.equals(obj2);
+        boolean result2 = (obj1 == obj2);
+
+        System.out.println(result1 + " " + result2 + "\n");
+
+        // String 클래스는, equals() 메소드를 오버라이딩합니다.
+        String s1 = "Hello";
+        String s2 = "Hello";
+        boolean result3 = s1.equals(s2);
+        boolean result4 = (s1 == s2);
+        System.out.println(result3 + " " + result4);
+        System.out.println();
+
+        System.out.println(obj1.toString());
+        System.out.println(obj2.toString());
+
+        // String 클래스는, toString() 메소드를 오버라이딩합니다.
+        String str1 = "Hello, World!";
+        System.out.println(str1.toString());
+
+        Overriding ov = new Overriding("Hello", "World!");
+        String str2 = ov.toString();
+        System.out.println(str2);
+    }
+}
+```
