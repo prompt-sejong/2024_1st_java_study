@@ -18,7 +18,7 @@
 
 p의 n제곱을 구하는 방법은 p를 n번 곱하여 값을 반환하는 것입니다. Java에서는 pow() 메소드가 제공되지만, 순환을 이용하여 값을 구할 수 있습니다.
 
-(getPower main)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/bfcb881cafcd358c0abe9f421df40e2adb2ccee1/week_7/eunsoo03181/assets/src/Recursion/GetPower.java#L1-L9
 
 재귀를 이용할 경우 시간 복잡도는 O(n)입니다. 일반적으로 pow() 메소드의 시간 복잡도가 O(log n)인 것을 비교했을 때, 거듭제곱 계산은 pow() 메소드를 이용하는 것이 효율 측면에서는 좋습니다.
 
@@ -32,7 +32,7 @@ p의 n제곱을 구하는 방법은 p를 n번 곱하여 값을 반환하는 것�
 
 순환을 통해, 다음과 같이 하노이탑을 구현할 수 있습니다.
 
-(HanoiTower)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/bfcb881cafcd358c0abe9f421df40e2adb2ccee1/week_7/eunsoo03181/assets/src/Recursion/HanoiTower.java#L1-L22
 
 순환을 이용할 경우 시간 복잡도는 O(2^n)입니다. 하노이 탑은 구현할 때마다 3개의 하위 문제로 분할되기 때문입니다.
 
@@ -40,11 +40,11 @@ p의 n제곱을 구하는 방법은 p를 n번 곱하여 값을 반환하는 것�
 
 ## 피보나치 수열
 
-(Fibonacci)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/bfcb881cafcd358c0abe9f421df40e2adb2ccee1/week_7/eunsoo03181/assets/src/Recursion/FibonacciSequence.java#L1-L10
 
 순환을 이용할 경우 시간 복잡도는 O(2^n)이므로, 위의 코드는 상당히 비효율적인 코딩입니다. 각 메소드가 독특한 값을 가지는 하노이 탑과 달리, 피보나치 수열은 항상 같은 값을 가지기 때문에, 메모이제이션을 통해, 시간 복잡도를 줄일 수 있습니다.
 
-(MemoFibonacci)
+https://github.com/eunsoo03181/2024_1st_java_study/blob/bfcb881cafcd358c0abe9f421df40e2adb2ccee1/week_7/eunsoo03181/assets/src/Recursion/FibonacciSequenceMemo.java#L1-L19
 
 HashMap은 값을 저장하는 자료구조라고 볼 수 있습니다. HashMap은 key 테이블과 value 테이블을 가집니다.
 
