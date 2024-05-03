@@ -19,12 +19,28 @@
 https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da16122f36d6afbbdd/week_7/eunsoo03181/assets/src/StacksAndQueue/WithArray/Stack.java#L1-L46
 
 ### Stack 클래스의 생성자
+```Java
+Stack(int size) {
+        this.maxSize = size;
+        this.stackArray = new int[maxSize];
+        this.top = -1;
+    }
+```
 
 사용자에게 size만 받고, size에 맞는 배열을 생성합니다. top은 데이터가 있는 노드의 마지막 번호입니다.
 
 <br/>
 
 ### Stack 클래스의 push() 메소드
+```Java
+void push(int value) {
+        if (isFull()) {
+            System.out.println("오류: 최대 용량에 도달하였습니다.");
+            return;
+        }
+        stackArray[++top] = value;
+    }
+```
 
 (1) 배열의 최대 크기에 도달하였다면, 오류 메시지를 출력하고 반환합니다.
 
@@ -33,6 +49,15 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da
 <br/>
 
 ### Stack 클래스의 pop() 메소드
+```Java
+int pop() {
+        if (isEmpty()) {
+            System.out.println("오류: 배열이 비어 있습니다.");
+            return -1;
+        }
+        return stackArray[top--];
+    }
+```
 
 (1) 배열이 비어있는 경우, 오류 메시지를 출력하고 -1을 반환합니다.
 
@@ -43,12 +68,29 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da
 https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da16122f36d6afbbdd/week_7/eunsoo03181/assets/src/StacksAndQueue/WithArray/Queue.java#L1-L52
 
 ### Queue 클래스의 생성자
+```Java
+Queue(int size) {
+        this.capacity = size;
+        this.array = new int[capacity];
+        this.front = 0;
+        this.rear = -1;
+    }
+```
 
 stack과 비슷하지만, 가장 1번째 값과 마지막 값에 대한 변수를 지정합니다.
 
 <br/>
 
 ### Queue 클래스의 push() 메소드
+```Java
+void push(int value) {
+        if (isFull()) {
+            System.out.println("오류: 최대 용량에 도달하였습니다.");
+            return;
+        }
+        array[++rear] = value;
+    }
+```
 
 (1)  배열의 최대 크기에 도달하였다면, 오류 메시지를 출력하고 반환합니다.
 
@@ -57,6 +99,19 @@ stack과 비슷하지만, 가장 1번째 값과 마지막 값에 대한 변수�
 <br/>
 
 ### Queue 클래스의 pop() 메소드
+```Java
+void pop() {
+        if (isEmpty()) {
+            System.out.println("오류: 배열이 비어 있습니다.");
+            return;
+        }
+        front++;
+        if (front == capacity) {
+            front = 0;
+            rear = -1;
+        }
+    }
+```
 
 (1) 배열이 비어있는 경우, 오류 메시지를 출력하고 -1을 반환합니다.
 
@@ -91,7 +146,26 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da
 
 스택과 큐의 공통되는 부분이며, 추상 클래스로 구현하여 상속을 통해서만 생성될 수 있습니다.
 
+```Java
+void push(int data) {
+        Node newNode = new Node(data);
+        // 리스트가 비어있는 경우
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+
+        newNode.next = head;
+        head = newNode;
+        return;
+    }
+```
+
 push() 메소드는, 리스트의 첫 번째 노드에 데이터를 추가합니다.
+
+```Java
+abstract void pop();
+````
 
 pop() 메소드는, 자식 클래스가 오버라이딩하여 각자의 정의대로 데이터를 추출합니다.
 
