@@ -6,7 +6,7 @@ class Queue {
     private int rear;
     private int capacity;
 
-    public Queue(int size) {
+    Queue(int size) {
         this.capacity = size;
         this.array = new int[capacity];
         this.front = 0;
