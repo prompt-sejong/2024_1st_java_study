@@ -23,7 +23,7 @@ class Queue {
 
     void push(int value) {
         if (isFull()) {
-            System.out.println("Queue is full. Cannot push element.");
+            System.out.println("오류: 최대 용량에 도달하였습니다.");
             return;
         }
         array[++rear] = value;
@@ -31,7 +31,7 @@ class Queue {
 
     void pop() {
         if (isEmpty()) {
-            System.out.println("Queue is empty. Cannot pop element.");
+            System.out.println("오류: 배열이 비어 있습니다.");
             return;
         }
         front++;
