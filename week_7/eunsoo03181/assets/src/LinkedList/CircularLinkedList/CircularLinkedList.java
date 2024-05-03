@@ -4,7 +4,7 @@ public class CircularLinkedList {
     Node head;
     Node tail;
 
-    public CircularLinkedList() {
+    CircularLinkedList() {
         this.head = null;
         this.tail = null;
     }
@@ -23,9 +23,10 @@ public class CircularLinkedList {
         }
     }
 
+    // 노드를 삭제하는 메소드
     void remove(int data) {
         if (head == null) {
-            System.out.println("리스트가 비어 있습니다.");
+            System.out.println("오류: 리스트가 비어 있습니다.");
             return;
         }
 
@@ -46,23 +47,21 @@ public class CircularLinkedList {
                     head = head.next;
                     tail.next = head; // tail의 다음 노드는 head를 가리킴 (원형)
                 }
-                System.out.println(data + "를 삭제했습니다.");
                 return;
             }
             prev = current;
             current = current.next;
         } while (current != head);
 
-        System.out.println(data + "를 찾을 수 없습니다.");
+        System.out.println("오류: 값이 리스트에 없습니다.");
     }
 
     public void display() {
         Node current = head;
         if (head == null) {
-            System.out.println("리스트가 비어 있습니다.");
+            System.out.println("오류: 리스트가 비어 있습니다.");
             return;
         }
-        System.out.print("리스트: ");
         do {
             System.out.print(current.data + " ");
             current = current.next;
