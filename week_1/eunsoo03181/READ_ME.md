@@ -114,7 +114,6 @@ public class HelloWorld {
     }
 }
 ```
-[HelloWorld.java](https://gist.github.com/eunsoo03181/d61606072fd7124259f23dd70192ba38)
 
 Java를 통해, ‘Hello, World!’를 출력하는 프로그램입니다.
 
