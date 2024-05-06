@@ -52,8 +52,53 @@ c^n은 2^log₂c^n이기 때문에, 주로 2^n으로 표기합니다. 재귀함�
 
 유의할 것은 시간 복잡도가 작은 것이 반드시 좋은 코딩이라고 보장할 수 없다는 점입니다. 시간 복잡도가 작을수록 프로그램의 실행이 빨라지고 정확해지지만 코드의 가독성과 유지 보수성이 훼손될 수 있어 실제로 코드를 설계할 때는 시간 복잡도 뿐만 아니라 가독성과 유지 보수성을 고려하는 것을 권장합니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/0603cb0d5bb9676d46e5158b83e4c86c36dab2f0/week_7/eunsoo03181/assets/src/TimeComplexity/GetTotal.java#L1-L28
-https://github.com/eunsoo03181/2024_1st_java_study/blob/0603cb0d5bb9676d46e5158b83e4c86c36dab2f0/week_7/eunsoo03181/assets/src/TimeComplexity/Main.java#L1-L15
+```Java
+package DataStructure.TimeComplexity;
+
+public class GetTotal {
+
+    static int cnt;
+
+    public static int getSum1(int n) {
+        int result = 0;
+        cnt = 0;
+        System.out.println("=== getSum1 함수 연산 시작 ===");
+        for (int i=1; i<=n; i++) {
+            cnt++;
+            System.out.println(cnt + "번째 연산.");
+            result += i;
+        }
+        System.out.println("=== getSum1 함수 연산 종료 ===\n");
+        return result;
+    }
+
+    public static int getSum2(int n) {
+        cnt = 0;
+        cnt++;
+        System.out.println("=== getSum2 함수 연산 시작 ===");
+        System.out.println(cnt + "번째 연산.");
+        System.out.println("=== getSum2 함수 연산 종료 ===\n");
+        return n*(n+1)/2;
+    }
+}
+```
+```Java
+package DataStructure.TimeComplexity;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int input = sc.nextInt();
+
+        int result1 = GetTotal.getSum1(input);
+        int result2 = GetTotal.getSum2(input);
+
+        System.out.println("result1 : " + result1);
+        System.out.println("result2 : " + result2);
+    }
+}
+```
 
 getTotal 클래스 안에는 두 개의 메소드가 있으며, 둘 다 주어진 변수 input에 대하여 1부터 input까지의 합을 시행하는 중 연산 횟수를 출력하고, 그 정답 반환합니다. 둘은 같은 값을 반환하지만, getSum1은 input번의 연산을, getSum2는 1번의 연산을 합니다. 즉, getSum1의 시간 복잡도는 O(n), getSum2의 시간 복잡도는 O(1)임을 알 수 있습니다.
 
