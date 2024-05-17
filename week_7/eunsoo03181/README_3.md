@@ -22,7 +22,19 @@ C에서는 연결 리스트를 주로 구조체(Struct)와 포인터(Pointer)를
 
 ### Node 클래스
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec80745008924bf3f8ecc/week_7/eunsoo03181/assets/src/LinkedList/SimplyLinkedList/Node.java#L1-L11
+```Java
+package DataStructure.LinkedList.SimplyLinkedList;
+
+class Node {
+    int data;
+    Node next; // 객체 참조
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+```
 
 단순 연결 리스트를 구현하기 위해 사용한, Node 클래스입니다. Node에는 data와 next라는 필드가 있으며, data는 해당 Node의 값을 정수형으로 저장합니다.
 
@@ -30,7 +42,75 @@ next는 Node 형태로 저장하여, 다음 객체의 주솟값을 저장합니�
 
 ### SimplyLinkedList 클래스
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec80745008924bf3f8ecc/week_7/eunsoo03181/assets/src/LinkedList/SimplyLinkedList/LinkedList.java#L1-L67
+```Java
+package DataStructure.LinkedList.SimplyLinkedList;
+
+class LinkedList {
+    Node head;
+
+    // 생성자
+    LinkedList() {
+        this.head = null;
+    }
+
+    // 새로운 노드를 리스트의 끝에 추가하는 메소드
+    void append(int data) {
+        Node newNode = new Node(data);
+        // 리스트가 비어있는 경우
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node current = head; // 1번째 노드 저장
+
+        // current의 마지막 노드가 등장할 때까지 1번째 노드에서 끝까지 이동
+        while (current.next != null) {
+            current = current.next;
+        }
+        // 마지막 노드가 새로운 노드의 주소를 참조하게 함.
+        current.next = newNode;
+    }
+
+    // 특정 값이 있는 노드를 삭제하는 메소드
+    void remove(int data) {
+        if (head == null) return; // 이미 리스트가 비어있으므로, 종료
+
+        // 1번째 값일 경우
+        if (head.data == data) {
+            // 연결 리스트의 head 노드를 다음 노드인 head.next로 변경
+            head = head.next;
+            // 기존의 head 노드는 그 누구도 참조하지 않기 때문에, 가비지 컬렉터에서 메모리 해제
+            return;
+        }
+
+        Node current = head;
+
+        // 마지막 노드까지 반복
+        while (current.next != null) {
+            // 현재 노드의 다음 값(data)이 삭제하려는 값인 경우
+            if (current.next.data == data) {
+                // 현재 노드의 다음 노드를 다다음 노드로 변경
+                current.next = current.next.next;
+                return;
+            }
+
+            // 찾는 값이 아닌 경우 다음 노드로 넘어감.
+            current = current.next;
+        }
+    }
+
+    // 현재 리스트의 내용을 모두 표시하는 메소드
+    void display() {
+        Node current = head;
+        while (current != null) {
+            // 현재 값(data) 출력 후 다음 노드로 이동.
+            System.out.print(current.data + " -> ");
+            current = current.next;
+        }
+        System.out.print("\n");
+    }
+}
+```
 
 위의 코드에서는 append()와 remove(), 그리고 display()를 지원합니다.
 
@@ -153,7 +233,96 @@ display() 메소드 또한, n개의 노드를 탐색 후 값을 출력하기 때
 
 상속(Inheritance)를 통해, 개선된 SimplyLinkedList를 구현하였습니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec80745008924bf3f8ecc/week_7/eunsoo03181/assets/src/LinkedList/SimplyLinkedList/ImprovedLinkedList.java#L1-L88
+```Java
+package DataStructure.LinkedList.SimplyLinkedList;
+import java.util.Scanner;
+
+// LinkedList 클래스 상속
+public class ImprovedLinkedList extends LinkedList {
+    // 특정 위치에 데이터를 추가하는 메소드
+    void insert(int data, int n) {
+        // 자리를 보정합니다.
+        n = n - 1;
+        // 첫 번째 노드에 추가하는 경우
+        Node newNode = new Node(data);
+        if (n == 0) {
+            // 추가할 노드가 1번째 노드 참조
+            newNode.next = head;
+            // 추가한 노드를 1번째 노드로 변경
+            head = newNode;
+            return;
+        }
+        Node current = head;
+        for (int i = 0; i < n - 1 && current != null; i++) {
+            current = current.next;
+        }
+        if (current == null) {
+            System.out.println("오류: 유효하지 않은 범위입니다.");
+            return;
+        }
+        // 새로운 노드가 현재 노드의 다음을 참조
+        newNode.next = current.next;
+        // 현재 노드가 새로운 노드를 참조하게 변경
+        current.next = newNode;
+    }
+
+    // 특정 위치의 노드를 삭제하는 메소드.
+    @Override
+    void remove(int data) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("삭제할 것을 구체적으로 명시해주세요.\n1. 값 (기본)\n2. 위치");
+        int mode = sc.nextInt();
+        if (mode == 1) {
+            super.remove(data);
+        }
+        else {
+            if (head == null) {
+                System.out.println(("리스트가 비어있습니다."));
+                return;
+            }
+            // 1번째 노드 삭제
+            if (data == 1) {
+                head = head.next;
+                return;
+            }
+            Node current = head;
+            Node prev = null; // 이전 노드 저장
+            int cnt = 0;
+
+            // 노드가 종료되고, 입력값이 cnt와 일치할 때까지 반복
+            while (current != null && cnt != data) {
+                prev = current;
+                current = current.next;
+                cnt++;
+            }
+
+            if (current == null) {
+                System.out.println("해당 위치에 노드가 없습니다.");
+                return;
+            }
+
+            // 이전 노드가 현재 노드의 다음 노드를 가리키도록 변경
+            prev.next = current.next;
+        }
+    }
+
+    // 입력한 값이 몇 번째 칸에 있는지를 반환하는 메소드
+    int search(int data) {
+        Node current = head;
+        int position = 1;
+
+        while (current != null) {
+            if (current.data == data) {
+                return position;
+            }
+            current = current.next;
+            position++;
+        }
+        // 값을 찾지 못한 경우, -1을 반환
+        return -1;
+    }
+}
+```
 
 <br/>
 
@@ -300,7 +469,27 @@ search() 메소드의 시간 복잡도는 O(n)입니다.
 
 실행 클래스 예시입니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec80745008924bf3f8ecc/week_7/eunsoo03181/assets/src/LinkedList/SimplyLinkedList/Main.java#L1-L19
+```Java
+package DataStructure.LinkedList.SimplyLinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        ImprovedLinkedList ll = new ImprovedLinkedList();
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(4);
+        ll.append(5);
+        ll.append(6);
+        ll.display();
+        ll.remove(2);
+        ll.display();
+        ll.insert(0, 3);
+        ll.display();
+        System.out.println(ll.search(6));
+    }
+}
+```
 
 모든 메소드의 시간 복잡도가 O(n)이므로, Java에서 구현한 단순 연결 리스트(Simply Linked List)의 시간 복잡도는 O(n)이 되는 것을 알 수 있습니다.
 
@@ -316,11 +505,129 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec807
 
 ### Node 클래스
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec80745008924bf3f8ecc/week_7/eunsoo03181/assets/src/LinkedList/DoublyLinkedList/Node.java#L1-L13
+```Java
+package DataStructure.LinkedList.DoublyLinkedList;
+
+class Node {
+    int data;
+    Node prev;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.prev = null;
+        this.next = null;
+    }
+}
+```
 
 이중 연결 리스트는 앞뒤 노드를 참조하므로, 두 번의 객체 참조를 하게 됩니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec80745008924bf3f8ecc/week_7/eunsoo03181/assets/src/LinkedList/DoublyLinkedList/DoublyLinkedList.java#L1-L103
+```Java
+package DataStructure.LinkedList.DoublyLinkedList;
+
+public class DoublyLinkedList {
+    Node head;
+    Node tail;
+
+    DoublyLinkedList() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    // 마지막 자리에 데이터 추가 메소드
+    public void append(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            return;
+        }
+        tail.next = newNode;
+        newNode.prev = tail;
+        tail = newNode;
+    }
+
+    // n번째 자리에 데이터 삽입하는 메소드
+    void insert(int data, int n) {
+        // n의 값을 보정합니다.
+        n = n-1;
+        Node newNode = new Node(data);
+        // 1번째 노드에 입력하는 경우
+        if (n==0) {
+            // newNode가 참조하는 다음 노드를 기존 1번째 노드로 변경
+            newNode.next = head;
+            // 1번째 노드가 참조하는 전 노드를 newNode로 지정
+            head.prev = newNode;
+            // 1번째 노드를 newNode로 지정
+            head = newNode;
+            return;
+        }
+        Node current = head;
+        for (int i=0; i<n-1 && current != null; i++) {
+            current = current.next;
+        }
+        if (current == null) {
+            System.out.println("오류: 유효하지 않은 범위입니다.");
+            return;
+        }
+        // 새로운 노드의 다음 노드가 현재 노드의 다음 노드를 참조하게 변경
+        newNode.next = current.next;
+        // 현재 노드가 마지막 노드가 아닌 경우, 마지막 노드가 참조하는 노드의 이전을 newNode가 참조하게 변경.
+        if (current.next != null) {
+            current.next.prev = newNode;
+        }
+        else {
+            tail = newNode; //current가 마지막 노드인 경우 tail을 업데이트
+        }
+        // 현재 노드가 다음 노드로 newNode를 참조
+        current.next = newNode;
+        // newNode가 이전 노드로 현재 노드를 참조
+        newNode.prev = current;
+    }
+
+    void display() {
+    Node current = head;
+    while (current != null) {
+        System.out.print(current.data + " -> ");
+        current = current.next;
+    }
+    System.out.println();
+    }
+
+    void remove(int data) {
+        Node current = head;
+
+        // 헤드 노드부터 시작하여 값이 일치하는 노드를 찾음
+        while (current != null) {
+            if (current.data == data) {
+                if (current == head) {
+                    // 현재 노드를 1번째 노드로 변경
+                    head = current.next;
+                    if (head != null) {
+                        // head가 이전 노드를 참조하지 않도록 변경
+                        head.prev = null;
+                    }
+                    // 리스트가 비어있는 경우, 마지막 노드도 제거
+                    if (head == null) {
+                        tail = null;
+                    }
+                }
+                else if (current == tail) {
+                    tail = current.prev; // tail을 이전 노드로 변경
+                    tail.next = null; // 변경된 마지막 노드가 다음 노드를 참조하지 않도록 변경
+                } else {
+                    // 시작과 끝이 아닌 경우
+                    current.prev.next = current.next; // 이전 노드의 다음 노드를 현재 노드의 다음 노드를 참조하도록 설정
+                    current.next.prev = current.prev; // 다음 노드의 이전 노드를 현재 노드의 이전 노드를 참조하도록 설정
+                }
+                return;
+            }
+            current = current.next;
+        }
+    }
+}
+```
 
 <br/>
 
@@ -490,7 +797,22 @@ display() 메소드의 시간 복잡도는 O(n)입니다.
 
 실행 클래스 예시입니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec80745008924bf3f8ecc/week_7/eunsoo03181/assets/src/LinkedList/DoublyLinkedList/Main.java#L1-L14
+```Java
+package DataStructure.LinkedList.DoublyLinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        DoublyLinkedList dl = new DoublyLinkedList();
+        dl.append(0);
+        dl.insert(1, 1);
+        dl.insert(2, 1);
+        dl.insert(3, 1);
+        dl.insert(4, 1);
+        dl.remove(0);
+        dl.display();
+    }
+}
+```
 
 모든 메소드의 시간 복잡도가 O(n)이므로, Java에서 구현한 이중 연결 리스트(Doubly Linked List)의 시간 복잡도는 O(n)이 되는 것을 알 수 있습니다.
 
@@ -506,11 +828,95 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec807
 
 ### Node 클래스
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec80745008924bf3f8ecc/week_7/eunsoo03181/assets/src/LinkedList/CircularLinkedList/Node.java#L1-L11
+```Java
+package DataStructure.LinkedList.CircularLinkedList;
+
+class Node {
+    int data;
+    Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+```
 
 단순 연결 리스트와 동일한 구조입니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/5bbf4f2ed732303db11ec80745008924bf3f8ecc/week_7/eunsoo03181/assets/src/LinkedList/CircularLinkedList/CircularLinkedList.java#L1-L71
+```Java
+package DataStructure.LinkedList.CircularLinkedList;
+
+public class CircularLinkedList {
+    Node head;
+    Node tail;
+
+    CircularLinkedList() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    // 노드를 리스트 끝에 추가하는 메서드
+    public void append(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            newNode.next = head; // 리스트가 비어있을 때는 자기 자신을 가리킴
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+            tail.next = head; // tail의 다음 노드는 head를 가리킴 (원형)
+        }
+    }
+
+    // 노드를 삭제하는 메소드
+    void remove(int data) {
+        if (head == null) {
+            System.out.println("오류: 리스트가 비어 있습니다.");
+            return;
+        }
+
+        Node current = head;
+        Node prev = null;
+
+        // 리스트를 순회하며 값을 찾음
+        do {
+            if (current.data == data) {
+                // 특정한 값을 찾았을 때
+                if (prev != null) {
+                    prev.next = current.next;
+                    if (current == tail) {
+                        tail = prev; // 마지막 노드일 경우 tail 업데이트
+                    }
+                } else {
+                    // 첫 번째 노드를 삭제할 경우
+                    head = head.next;
+                    tail.next = head; // tail의 다음 노드는 head를 가리킴 (원형)
+                }
+                return;
+            }
+            prev = current;
+            current = current.next;
+        } while (current != head);
+
+        System.out.println("오류: 값이 리스트에 없습니다.");
+    }
+
+    public void display() {
+        Node current = head;
+        if (head == null) {
+            System.out.println("오류: 리스트가 비어 있습니다.");
+            return;
+        }
+        do {
+            System.out.print(current.data + " ");
+            current = current.next;
+        } while (current != head);
+        System.out.println();
+    }
+}
+```
 
 ### append() 메소드 작동 방식
 ```Java

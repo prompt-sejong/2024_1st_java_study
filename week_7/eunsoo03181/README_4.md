@@ -16,7 +16,54 @@
 
 <br/>
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da16122f36d6afbbdd/week_7/eunsoo03181/assets/src/StacksAndQueue/WithArray/Stack.java#L1-L46
+```Java
+package DataStructure.StacksAndQueue.WithArray;
+
+class Stack {
+    int maxSize;
+    int[] stackArray;
+    int top;
+
+    Stack(int size) {
+        this.maxSize = size;
+        this.stackArray = new int[maxSize];
+        this.top = -1;
+    }
+
+    boolean isFull() {
+        return (top == maxSize - 1);
+    }
+
+    boolean isEmpty() {
+        return (top == -1);
+    }
+
+    void push(int value) {
+        if (isFull()) {
+            System.out.println("오류: 최대 용량에 도달하였습니다.");
+            return;
+        }
+        stackArray[++top] = value;
+    }
+
+    int pop() {
+        if (isEmpty()) {
+            System.out.println("오류: 배열이 비어 있습니다.");
+            return -1;
+        }
+        return stackArray[top--];
+    }
+
+    void display() {
+        if (isEmpty()) return;
+        System.out.print("Stack: ");
+        for (int i = top; i >= 0; i--) {
+            System.out.print(stackArray[i] + " -> ");
+        }
+        System.out.println();
+    }
+}
+```
 
 ### Stack 클래스의 생성자
 ```Java
@@ -65,7 +112,60 @@ int pop() {
 
 <br/>
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da16122f36d6afbbdd/week_7/eunsoo03181/assets/src/StacksAndQueue/WithArray/Queue.java#L1-L52
+```Java
+package DataStructure.StacksAndQueue.WithArray;
+
+class Queue {
+    private int[] array;
+    private int front;
+    private int rear;
+    private int capacity;
+
+    Queue(int size) {
+        this.capacity = size;
+        this.array = new int[capacity];
+        this.front = 0;
+        this.rear = -1;
+    }
+
+    boolean isEmpty() {
+        return rear == -1;
+    }
+
+    boolean isFull() {
+        return rear == capacity - 1;
+    }
+
+    void push(int value) {
+        if (isFull()) {
+            System.out.println("오류: 최대 용량에 도달하였습니다.");
+            return;
+        }
+        array[++rear] = value;
+    }
+
+    void pop() {
+        if (isEmpty()) {
+            System.out.println("오류: 배열이 비어 있습니다.");
+            return;
+        }
+        front++;
+        if (front == capacity) {
+            front = 0;
+            rear = -1;
+        }
+    }
+
+    public void display() {
+        if (isEmpty()) return;
+        System.out.print("Queue: ");
+        for (int i = front; i <= rear; i++) {
+            System.out.print(array[i] + " -> ");
+        }
+        System.out.println();
+    }
+}
+```
 
 ### Queue 클래스의 생성자
 ```Java
@@ -125,7 +225,31 @@ void pop() {
 
 실행 클래스 예시입니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da16122f36d6afbbdd/week_7/eunsoo03181/assets/src/StacksAndQueue/WithArray/Main.java#L1-L23
+```Java
+package DataStructure.StacksAndQueue.WithArray;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Stack st = new Stack(5);
+        Queue qu = new Queue(5);
+
+        for (int i=0; i<5; i++) {
+            st.push(i + 1);
+            qu.push(i + 1);
+        }
+        st.display();
+        qu.display();
+        System.out.println("==========pop 이후==========");
+        st.pop();
+        st.pop();
+        qu.pop();
+        qu.pop();
+        st.display();
+        qu.display();
+    }
+}
+```
 
 배열로 구현한 스택과 큐는 모두 O(1)의 시간 복잡도를 가집니다. 데이터를 리스트에 추가하는 것과 삭제하는 것에 연산이 크게 요구되지 않기 때문입니다.
 
@@ -141,8 +265,61 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da
 
 ### StackAndQueue 클래스
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da16122f36d6afbbdd/week_7/eunsoo03181/assets/src/StacksAndQueue/WithLinkedList/Node.java#L1-L11
-https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da16122f36d6afbbdd/week_7/eunsoo03181/assets/src/StacksAndQueue/WithLinkedList/StackAndQueue.java#L1-L40
+```Java
+package DataStructure.StacksAndQueue.WithLinkedList;
+
+class Node {
+    int data;
+    Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+```
+```Java
+package DataStructure.StacksAndQueue.WithLinkedList;
+
+import DataStructure.StacksAndQueue.WithLinkedList.Node;
+
+public abstract class StackAndQueue {
+    Node head;
+
+    // 생성자
+    StackAndQueue() {
+        this.head = null;
+    }
+
+    // 새로운 노드를 리스트의 시작 부분에 추가하는 메소드
+    void push(int data) {
+        Node newNode = new Node(data);
+        // 리스트가 비어있는 경우
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+
+        newNode.next = head;
+        head = newNode;
+        return;
+    }
+
+    // 특정 값이 있는 노드를 삭제하는 메소드
+    abstract void pop();
+
+    // 현재 리스트의 내용을 모두 표시하는 메소드
+    void display() {
+        Node current = head;
+        while (current != null) {
+            // 현재 값(data) 출력 후 다음 노드로 이동.
+            System.out.print(current.data + " -> ");
+            current = current.next;
+        }
+        System.out.print("\n");
+    }
+}
+```
 
 스택과 큐의 공통되는 부분이며, 추상 클래스로 구현하여 상속을 통해서만 생성될 수 있습니다.
 
@@ -173,7 +350,20 @@ pop() 메소드는, 자식 클래스가 오버라이딩하여 각자의 정의�
 
 ### Stack 클래스의 pop() 메소드 오버라이딩
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da16122f36d6afbbdd/week_7/eunsoo03181/assets/src/StacksAndQueue/WithLinkedList/Stack.java#L1-L12
+```Java
+package DataStructure.StacksAndQueue.WithLinkedList;
+
+public class Stack extends StackAndQueue {
+
+    // 1번째 노드를 삭제하는 메소드
+    @Override
+    void pop() {
+        if (head == null) return;
+        head = head.next;
+        return;
+    }
+}
+```
 
 스택은 후입선출 방식을 채택하기 때문에, pop() 메소드는 첫 번째 노드를 추출합니다.
 
@@ -181,7 +371,34 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da
 
 ### Queue 클래스의 pop() 메소드 오버라이딩
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da16122f36d6afbbdd/week_7/eunsoo03181/assets/src/StacksAndQueue/WithLinkedList/Queue.java#L1-L25
+```Java
+package DataStructure.StacksAndQueue.WithLinkedList;
+
+public class Queue extends StackAndQueue {
+
+    // 마지막 노드를 삭제하는 메소드
+    @Override
+    void pop() {
+        if (head == null) {
+            return;
+        }
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        Node current = head;
+        Node prev = null;
+        while (current.next != null) {
+            prev = current;
+            current = current.next;
+        }
+        prev.next = null;
+    }
+}
+```
+
 
 큐는 선입선출 방식을 채택하기 때문에, pop() 메소드는 마지막 노드를 추출합니다. 
 
@@ -191,6 +408,33 @@ https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da
 
 실행 클래스 예시입니다.
 
-https://github.com/eunsoo03181/2024_1st_java_study/blob/175e19a5bc7e5c8bb73db0da16122f36d6afbbdd/week_7/eunsoo03181/assets/src/StacksAndQueue/WithLinkedList/Main.java#L1-L26
+```Java
+package DataStructure.StacksAndQueue.WithLinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        Stack st = new Stack();
+        Queue qu = new Queue();
+
+        for (int i=0; i<5; i++) {
+            st.push(i + 1);
+            qu.push(i + 1);
+        }
+        System.out.print("Stack: ");
+        st.display();
+        System.out.print("Queue: ");
+        qu.display();
+        System.out.println("==========pop 이후==========");
+        st.pop();
+        st.pop();
+        qu.pop();
+        qu.pop();
+        System.out.print("Stack: ");
+        st.display();
+        System.out.print("Queue: ");
+        qu.display();
+    }
+}
+```
 
 단순 연결 리스트 방식을 채택하기 때문에 시간 복잡도는 마찬가지로 O(n)입니다.
