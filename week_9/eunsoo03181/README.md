@@ -14,11 +14,11 @@
 
 예외는 일반 예외(Checked Exception)과 실행 예외(RE: Runtime Exception)으로 나뉩니다.
 
-![Untitled](5%20%E1%84%8B%E1%85%A8%E1%84%8B%E1%85%AC%20%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%206a1a7dee35c8414ab2bce85247cd631f/Untitled.png)
+![](assets/img/img1.png)
 
 일반 예외는 ‘컴파일러 체크 예외’라고 부릅니다. 프로그램이 컴파일될 때, 예외 처리 코드가 있는지를 검사하고, 예외 처리 코드가 없다면 컴파일 오류를 발생시킵니다. IDE에서 보통 위와 같이 실행을 하지 않아도 일반 예외가 발생할 것을 알려줍니다.
 
-![Untitled](5%20%E1%84%8B%E1%85%A8%E1%84%8B%E1%85%AC%20%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%206a1a7dee35c8414ab2bce85247cd631f/Untitled%201.png)
+![](assets/img/img2.png)
 
 실행 예외는 ‘컴파일러 넌(non) 체크 예외’라고 부릅니다. 컴파일 과정 중에 예외 처리 코드가 있는지를 검사하지 않습니다.
 
@@ -274,7 +274,7 @@ public class ThrowsMethod {
 }
 ```
 
-![Untitled](5%20%E1%84%8B%E1%85%A8%E1%84%8B%E1%85%AC%20%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5%206a1a7dee35c8414ab2bce85247cd631f/Untitled%202.png)
+![](assets/img/img3.png)
 
 forName() 메소드는, 메소드 선언부 뒤에 ClassNotFoundException을 떠넘기기 때문에, 사용시 반드시 예외 처리를 해주어야 합니다. 그러지 않을 경우, 컴파일 에러가 발생합니다.
 
