@@ -1,25 +1,26 @@
-- [1. 산술 연산자 / 비트 연산자 / 관계 연산자 / 논리 연산자](#1-산술-연산자--비트-연산자--관계-연산자--논리-연산자)
-  - [1.1. 산술 연산자 (arithmetic operator)](#11-산술-연산자-arithmetic-operator)
-  - [1.2. 비트 연산자](#12-비트-연산자)
-  - [1.3. 관계 연산자](#13-관계-연산자)
-  - [1.4. 논리 연산자](#14-논리-연산자)
-- [2. instance of](#2-instance-of)
-- [3. assignment(=) operator](#3-assignment-operator)
-- [4. 화살표(-\>) 연산자](#4-화살표--연산자)
-  - [4.1. Lambda expression](#41-lambda-expression)
-  - [4.2. 익명 클래스](#42-익명-클래스)
-- [5. 3항 연산자](#5-3항-연산자)
-- [6. 연산자 우선 순위](#6-연산자-우선-순위)
-- [7. Java 13. switch 연산자](#7-java-13-switch-연산자)
-  - [7.1. 기존 switch 구문](#71-기존-switch-구문)
-  - [7.2. java 13 이후 구문](#72-java-13-이후-구문)
-- [8. Wrapper Class (2주차 피드백)](#8-wrapper-class-2주차-피드백)
-  - [8.1. Boxing \& UnBoxing](#81-boxing--unboxing)
-  - [8.2. Auto Boxing \& Auto UnBoxing](#82-auto-boxing--auto-unboxing)
+목차
+- [산술 연산자 / 비트 연산자 / 관계 연산자 / 논리 연산자](#산술-연산자--비트-연산자--관계-연산자--논리-연산자)
+  - [산술 연산자 (arithmetic operator)](#산술-연산자-arithmetic-operator)
+  - [비트 연산자](#비트-연산자)
+  - [관계 연산자](#관계-연산자)
+  - [논리 연산자](#논리-연산자)
+- [instance of](#instance-of)
+- [assignment(=) operator](#assignment-operator)
+- [화살표(-\>) 연산자](#화살표--연산자)
+  - [Lambda expression](#lambda-expression)
+  - [익명 클래스](#익명-클래스)
+- [3항 연산자](#3항-연산자)
+- [연산자 우선 순위](#연산자-우선-순위)
+- [Java 13. switch 연산자](#java-13-switch-연산자)
+  - [기존 switch 구문](#기존-switch-구문)
+  - [java 13 이후 구문](#java-13-이후-구문)
+- [Wrapper Class (2주차 피드백)](#wrapper-class-2주차-피드백)
+  - [Boxing \& UnBoxing](#boxing--unboxing)
+  - [Auto Boxing \& Auto UnBoxing](#auto-boxing--auto-unboxing)
 
-# 1. 산술 연산자 / 비트 연산자 / 관계 연산자 / 논리 연산자
+# 산술 연산자 / 비트 연산자 / 관계 연산자 / 논리 연산자
 아래에서 각종 연산자에 대한 내용을 다룬다.
-## 1.1. 산술 연산자 (arithmetic operator)
+## 산술 연산자 (arithmetic operator)
 | 산술 연산자 | descriptions                                                 |
 | ----------- | ------------------------------------------------------------ |
 | +           | 왼쪽의 피연산자에 오른쪽 피연산자를 더함.                    |
@@ -35,7 +36,7 @@ System.out.println("5 * 2 = " + (5 * 2));    // 곱셈
 System.out.println("5 / 2 = " + (5 / 2));    // 나눗셈
 System.out.println("5 % 2 = " + (5 % 2));    // 나머지
 ```
-## 1.2. 비트 연산자
+## 비트 연산자
 비트 연산자는 후술할 논리 연산자와 비슷한 일을 수행하지만 비트 단위로 연산을 수행해야할 때 많이 쓴다.
 
 | 비트 연산자 | descriptions                                                                        |
@@ -71,7 +72,7 @@ System.out.println("5 % 2 = " + (5 % 2));    // 나머지
 ![Rshift](assets/rshift.png)
 ![Rshift2](assets/rshift2.png)
 
-## 1.3. 관계 연산자
+## 관계 연산자
 관계 연산자는 비교 연산자라고도 불리며, 아래표와 같다.
 | 관계 연산자 | descriptions                                                       |
 | ----------- | ------------------------------------------------------------------ |
@@ -91,7 +92,7 @@ System.out.println('a' < 'A');      // false
 System.out.println('a' <= 'A');     // false
 ```
 
-## 1.4. 논리 연산자
+## 논리 연산자
 논리 연산자는 `true`와 `false`간의 관계를 나타낸다.
 | 논리 연산자 | descriptions                                                         |
 | ----------- | -------------------------------------------------------------------- |
@@ -111,7 +112,7 @@ System.out.println('a' <= 'A');     // false
 
 이와 비슷하게 `||`도 이러한 특징이 있는데, A가 `true`면 뒤가 어떻든 `true`이다. 따라서 A가 `true`면 B는 실행하지 않고 `true`를 반환한다.
 
-# 2. instance of
+# instance of
 2주차에 살펴본 연산자이다. 간단히 보고 넘어가겠다. 문법은 다음과 같다.
 ``` java
 object instanceof type
@@ -134,7 +135,7 @@ public static void main(String[] args) {
 }
 ```
 
-# 3. [assignment(=) operator](https://doozi0316.tistory.com/entry/3주차-연산자)
+# [assignment(=) operator](https://doozi0316.tistory.com/entry/3주차-연산자)
 우리가 가장 많이 봐온 `=`와 관련된 연산이다.
 
 | assignment operator | descriptions                                                               |
@@ -170,9 +171,9 @@ System.out.println(A);    // 10
 A /= 3;
 System.out.println(A);    // 1
 ```
-# 4. 화살표(->) 연산자
+# 화살표(->) 연산자
 ->(화살표 연산자)는 람다 표현식을 구성하는데 사용된다. 그렇다면 람다 표현식은 무엇일까?
-## 4.1. [Lambda expression](https://velog.io/@hp5234/JAVA-3편-화살표연산자-람다-기초)
+## [Lambda expression](https://velog.io/@hp5234/JAVA-3편-화살표연산자-람다-기초)
 람다 표현식은 메서드를 하나의 식으로 표현한 것이다. 이는 클래스에 구애받지 않고 사용이 가능하다. 다음 간단한 예시부터 살펴보자.
 ```java
 // 일반 메소드
@@ -204,7 +205,7 @@ void printVar(String name, int i) {
   - 반복문 시 람다식이 더 느림
 
 람다식에 선언된 매개변수의 타입은 추론이 가능한 경우 생략 가능 (컴파일러가 선언부를 살펴본다.)
-## 4.2. [익명 클래스](https://doozi0316.tistory.com/entry/3주차-연산자#익명클래스_7)
+## [익명 클래스](https://doozi0316.tistory.com/entry/3주차-연산자#익명클래스_7)
 람다 표현식을 사용해서 인스턴스를 임시로 만들어서 사용할 수도 있다. 우선 일반적인 클래스 먼저 살펴보자
 ```java
 public class Parent {
@@ -237,7 +238,7 @@ public static void main(String[] args) {
 
 > *답변*:
 
-# 5. 3항 연산자
+# 3항 연산자
 3항 연산자는 피연산자가 3개이기 때문에 3항 연산자라고 불린다. 위에서 3항 연산을 몇 번 사용했다. 일단 기본 문법부터 살펴보자.
 ```java
 (조건문) ? (참이면) : (거짓이면);
@@ -253,7 +254,7 @@ else {
 }
 ```
 삼항 연산자가 코드를 많이 줄여주지만 남용하면 가독성이 많이 떨어진다.
-# 6. [연산자 우선 순위]((https://www.tcpschool.com/java/java_operator_arithmetic))
+# [연산자 우선 순위]((https://www.tcpschool.com/java/java_operator_arithmetic))
 | 우선순위 | 연산자     | 설명                                      | 결합 방향           |
 | -------- | ---------- | ----------------------------------------- | ------------------- |
 | 1        | []         | 첨자 연산자                               | 왼쪽에서 오른쪽으로 |
@@ -292,9 +293,9 @@ else {
 
 대입 연산자 및 복합 대입 연산자 :  =, +=, -=, *=, /=, %=, <<=, >>=, >>>=, &=, ^=, \|=
 
-# 7. Java 13. switch 연산자
+# Java 13. switch 연산자
 파이썬과는 다르게 C언어와 마찬가지로 switch/case문이 있다.
-## 7.1. 기존 switch 구문
+## 기존 switch 구문
 기존 switch 구문은 c언어와 동일하다.
 ```java
 // 저번주에 다뤘어야 하지만 지금 생각나서 적는다.
@@ -316,7 +317,7 @@ switch(str) {
         break;
 }
 ```
-## 7.2. java 13 이후 구문
+## java 13 이후 구문
 새로운 문법은 훨씬 간결해졌다. 예시를 보자
 ```java
 String str = "A";
@@ -327,7 +328,7 @@ switch (str) {
 }
 ```
 위와 같이 훨씬 간결하게 쓸 수 있다. 다만, 이전 버전에 대한 지원이 안되므로 jdk 버전을 잘 확인하고 사용 해야한다.
-# 8. Wrapper Class (2주차 피드백)
+# Wrapper Class (2주차 피드백)
 프로그램에 따라 `Primitive Type` 데이터를 객체로 취급해야 하는 경우가 있다. 이 때에 객체로 변환하고 작업을 수행해야한다.
 
 Wrapper Class는 java.lang 패키지에 포함되어 타입을 인수로 전달받아 해당 값을 가지는 객체를 반환해준다.
@@ -342,11 +343,11 @@ Wrapper Class는 java.lang 패키지에 포함되어 타입을 인수로 전달�
 | double         | Double        |
 | char           | Character     |
 | boolean        | Boolean       |
-## 8.1. Boxing & UnBoxing
+## Boxing & UnBoxing
 ![boxing unboxing](assets/wrapper%20class.png)
 
 위 그림을 보면 이해가 쉽다. `Primitive Type`에서 `Wapper Class`로 변환하는 과정을 `Boxing`, 그 역을 `UnBoxing`이라 한다.
-## 8.2. Auto Boxing & Auto UnBoxing
+## Auto Boxing & Auto UnBoxing
 JDK 1.5부터 컴파일러가 자동으로 박싱과 언박싱을 해준다.
 다음 예시들을 보자
 ```java

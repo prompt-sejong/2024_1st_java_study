@@ -1,21 +1,22 @@
-- [1. 자바 상속의 특징](#1-자바-상속의-특징)
-- [2. super 키워드](#2-super-키워드)
-- [3. 메소드 오버라이딩](#3-메소드-오버라이딩)
-- [4. 다이나믹 메소드 디스패치 (Dynamic Method Dispatch)](#4-다이나믹-메소드-디스패치-dynamic-method-dispatch)
-  - [4.1. Dynamic method dispatch](#41-dynamic-method-dispatch)
-  - [4.2. Double dispatch](#42-double-dispatch)
-- [5. 추상 클래스](#5-추상-클래스)
-  - [5.1. abstract method](#51-abstract-method)
-  - [5.2. abstract class](#52-abstract-class)
-- [6. final 키워드](#6-final-키워드)
-  - [6.1. Variable](#61-variable)
-  - [6.2. Method](#62-method)
-  - [6.3. Class](#63-class)
-- [7. Object 클래스](#7-object-클래스)
-  - [7.1. java.lang Package](#71-javalang-package)
-  - [7.2. java.lang.Object Class](#72-javalangobject-class)
+목차
+- [자바 상속의 특징](#자바-상속의-특징)
+- [super 키워드](#super-키워드)
+- [메소드 오버라이딩](#메소드-오버라이딩)
+- [다이나믹 메소드 디스패치 (Dynamic Method Dispatch)](#다이나믹-메소드-디스패치-dynamic-method-dispatch)
+  - [Dynamic method dispatch](#dynamic-method-dispatch)
+  - [Double dispatch](#double-dispatch)
+- [추상 클래스](#추상-클래스)
+  - [abstract method](#abstract-method)
+  - [abstract class](#abstract-class)
+- [final 키워드](#final-키워드)
+  - [Variable](#variable)
+  - [Method](#method)
+  - [Class](#class)
+- [Object 클래스](#object-클래스)
+  - [java.lang Package](#javalang-package)
+  - [java.lang.Object Class](#javalangobject-class)
 
-# 1. 자바 상속의 특징
+# 자바 상속의 특징
 상속은 사실 이전에도 언급만 없었지 다뤄왔다. 2주 차에 타입 캐스팅을 설명하며 상속을 다뤘다. 그래도 설명을 해보자.
 ```java
 class Parent { }
@@ -26,7 +27,7 @@ class Child extends Parent { ... }
 
 클래스를 상속시키면 child class는 parent class가 가진 것을 사용할 수 있다. `private`로 선언된 것을 제외하곤 전부 사용할 수 있다. 다음 super를 다루는 내용에서 이어서 설명하겠다.
 
-# 2. super 키워드
+# super 키워드
 이전 주차에서 this 키워드에 대해 공부했다. super 또한 this와 비슷하다.
 
 클래스 상속을 받으면 부모 클래스에 접근해야 할 때가 생길 것이다. 그때 사용하는 것이 super 키워드이다.
@@ -37,7 +38,7 @@ super
 super()
 - 클래스의 부모 생성자를 호출하기 위해 사용
 
-# 3. 메소드 오버라이딩
+# 메소드 오버라이딩
 메소드 오버라이딩은 이전 주차에서 생성자를 통해 학습했었다. 상속에서의 메소드 오버라이딩은 조금 결이 다르다. 이 또한 2주 차 학습 내용에서 다룬 적이 있다. 
 
 이번엔 기본 뼈대부터 살펴보자.
@@ -147,14 +148,14 @@ public class BuyCoffee {
 }
 ```
 
-# 4. 다이나믹 메소드 디스패치 ([Dynamic Method Dispatch](https://www.educative.io/answers/what-is-dynamic-method-dispatch-in-java))
-## 4.1. Dynamic method dispatch
+# 다이나믹 메소드 디스패치 ([Dynamic Method Dispatch](https://www.educative.io/answers/what-is-dynamic-method-dispatch-in-java))
+## Dynamic method dispatch
 `Dynamic Method Dispatch`는 재정의된 메소드에 대한 호출이 `compile-time`이 아니라 `run-time`에 이루어지는 것이다. 이것이 가능한 이유는 `superclass reference variable`은  `subclass object`를 참조할 수 있기 때문이다. 이를 위 예시에서 쉽게 설명해 보자.
 1. 변수 `latte`는 `Coffee`라는 `superclass` 참조 변수이다.
 2. 이 변수가 가리키는 것은 `CaffeLatte`라는 `subclass` 객체이다.
 3. 따라서 해당 문법이 `run-time`에서 재정의된 메소드를 호출할 수 있는 것이다.
 
-## 4.2. [Double dispatch](https://velog.io/@maigumi/Dynamic-Method-Dispatch)
+## [Double dispatch](https://velog.io/@maigumi/Dynamic-Method-Dispatch)
 일단 [예시](https://velog.io/@iamtaehoon/y3uuyvw5)부터 보자.
 ```java
 import java.util.ArrayList;
@@ -289,8 +290,8 @@ public class ExtractionTest {
 ```
 위와 같은 방식은 Visitor 디자인 패턴에서 사용되는 방식이다. 자바는 패키지 구성을 어떻게 하는지 궁금하여 src 파일에 구현해 놓았다.
 
-# 5. [추상 클래스](https://www.tcpschool.com/java/java_polymorphism_abstract)
-## 5.1. abstract method
+# [추상 클래스](https://www.tcpschool.com/java/java_polymorphism_abstract)
+## abstract method
 추상 메소드는 자식 클래스에서 반드시 오버라이딩 해야만 사용할 수 있는 메소드를 의미한다. 따라서 선언만 되어있고, 구현은 되어있지 않다.
 
 ```java
@@ -298,7 +299,7 @@ abstract returnType FuncName();
 ```
 위와 같이 일반적인 함수 선언처럼 하되, 앞에 `abstract` 키워드를 붙이면 된다.
 
-## 5.2. abstract class
+## abstract class
 하나 이상의 추상 메소드를 포함하는 클래스를 추상 클래스라고 한다. 추상 클래스를 상속받는 모든 클래스는 추상 메소드를 반드시 재정의해야 한다.
 
 ```java
@@ -312,9 +313,9 @@ abstract class ClassName {
 
 그럼 메소드에만 `abstract`를 붙이지 클래스에도 `abstract` 키워드를 붙이느냐고 할 수 있다. 클래스에 abstract를 붙이는 이유는 단순하다. 추상 메소드가 있으니 `subclass`에 상속하고, 추상 메소드를 재정의한 뒤에 `subclass`를 통해 인스턴스를 생성하라는 의미이다. 즉, 추상 클래스는 인스턴스를 생성할 수 없다.
 
-# 6. [final 키워드](https://sabarada.tistory.com/148)
+# [final 키워드](https://sabarada.tistory.com/148)
 `final` 키워드는 변수, 메소드, 클래스에 사용될 수 있다.
-## 6.1. Variable
+## Variable
 `Primitive Type` 변수에 `final` 키워드를 붙이면 `stack`에 있는 메모리를 변조할 수 없기 때문에, 메모리 주소와 값이 고정된다.
 
 `Reference Type` 변수에 `final` 키워드를 붙이면 마찬가지로 `stack`에 있는 메모리를 변조할 수 없기 때문에, 변수의 메모리 주소와 변수가 가리키는 힙 메모리 주소가 바뀌지 않는다. 힙의 값은 `final`이 제한하는 범위 외부이므로 바뀔 수 있다.
@@ -327,19 +328,19 @@ final String myString = "Hello World!";
 
 Static만 주의해서 사용하면 된다. (초기화 시 final로 인해 고정)
 
-## 6.2. Method
+## Method
 메소드에 `final`을 붙이면 `override`를 제한하게 된다.
 
-## 6.3. Class
+## Class
 클래스에 `final`을 붙이면 상속을 제한하게 된다.
 
 `final`을 사용하는 클래스의 대표적인 예시로는 `Wrapper Class`가 있다.
 
-# 7. [Object 클래스](https://www.tcpschool.com/java/java_api_object)
-## 7.1. java.lang Package
+# [Object 클래스](https://www.tcpschool.com/java/java_api_object)
+## java.lang Package
 java.lang 패키지는 자바에서 가장 기본적인 동작을 수행하는 클래스들의 집합이다. 따라서 자바에서는 import를 하지 않아도 클래스 이름만으로 바로 사용할 수 있도록 하고 있다.
 
-## 7.2. java.lang.Object Class
+## java.lang.Object Class
 Object 클래스는 모든 자바 클래스의 최고 조상 클래스가 된다.
 따라서 자바의 모든 클래스는 Object 클래스의 모든 메소드를 바로 사용할 수 있다.
 

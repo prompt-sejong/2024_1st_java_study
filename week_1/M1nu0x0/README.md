@@ -1,12 +1,27 @@
-# 자바 스터디 - 1주차
 목차
-1. [JVM이란 무엇일까?](#jvm이란-무엇일까)
-2. [컴파일 하는 방법](#컴파일-하는-방법)
-3. [실행하는 방법](#실행하는-방법)
-4. [바이트코드란 무엇인가](#바이트코드란-무엇인가)
-5. [JIT컴파일러란 무엇이며 어떻게 동작하는지](#jit컴파일러란-무엇이며-어떻게-동작하는지)
-6. [JVM 구성 요소](#jvm-구성요소)
-7. [JDK와 JRE의 차이](#jdk와-jre의-차이)
+- [JVM이란 무엇일까?](#jvm이란-무엇일까)
+- [컴파일](#컴파일)
+  - [컴파일 과정](#컴파일-과정)
+- [실행하는 방법](#실행하는-방법)
+  - [JDK 설치](#jdk-설치)
+  - [환경 변수 설정](#환경-변수-설정)
+  - [Hello World! with VSCode](#hello-world-with-vscode)
+- [바이트코드란 무엇인가?](#바이트코드란-무엇인가)
+- [JIT컴파일러란 무엇이며 어떻게 동작하는지](#jit컴파일러란-무엇이며-어떻게-동작하는지)
+- [JVM 구성요소](#jvm-구성요소)
+  - [JVM (Java Virtual Machine)](#jvm-java-virtual-machine)
+    - [JVM 구조](#jvm-구조)
+    - [Class Loader System Area](#class-loader-system-area)
+    - [Runtime Data Area](#runtime-data-area)
+    - [Excutable Engine](#excutable-engine)
+    - [Class Loading Process](#class-loading-process)
+    - [Dynamic Loading](#dynamic-loading)
+- [JDK와 JRE의 차이](#jdk와-jre의-차이)
+  - [JDK (Java Development Kit)](#jdk-java-development-kit)
+    - [주요 도구](#주요-도구)
+  - [JRE (Java Runtime Environment)](#jre-java-runtime-environment)
+    - [JRE 작동 원리](#jre-작동-원리)
+
 ## JVM이란 무엇일까?
 JVM이 무엇인지 알기 전에 JVM이 왜 쓰이는지에 대해서 알아야한다.
 

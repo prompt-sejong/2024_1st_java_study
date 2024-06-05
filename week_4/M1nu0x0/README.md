@@ -1,27 +1,28 @@
-- [1. 자바가 제공하는 제어문에는 무엇이 있을까?](#1-자바가-제공하는-제어문에는-무엇이-있을까)
-- [2. 조건문](#2-조건문)
-  - [2.1. if](#21-if)
-  - [2.2. if else](#22-if-else)
-  - [2.3. switch](#23-switch)
-- [3. 반복문](#3-반복문)
-  - [3.1. for](#31-for)
-  - [3.2. while](#32-while)
-  - [3.3. do whlie](#33-do-whlie)
-- [4. 번외; 문자열 포맷팅](#4-번외-문자열-포맷팅)
-  - [4.1. String.format()](#41-stringformat)
-  - [4.2. String.join()](#42-stringjoin)
-  - [4.3. String.valueOf()](#43-stringvalueof)
-  - [4.4. String.copyValueOf()](#44-stringcopyvalueof)
+목차
+- [자바가 제공하는 제어문에는 무엇이 있을까?](#자바가-제공하는-제어문에는-무엇이-있을까)
+- [조건문](#조건문)
+  - [if](#if)
+  - [if else](#if-else)
+  - [switch](#switch)
+- [반복문](#반복문)
+  - [for](#for)
+  - [while](#while)
+  - [do whlie](#do-whlie)
+- [번외; 문자열 포맷팅](#번외-문자열-포맷팅)
+  - [String.format()](#stringformat)
+  - [String.join()](#stringjoin)
+  - [String.valueOf()](#stringvalueof)
+  - [String.copyValueOf()](#stringcopyvalueof)
 
-# 1. 자바가 제공하는 제어문에는 무엇이 있을까?
+# 자바가 제공하는 제어문에는 무엇이 있을까?
 제어문이란, 프로그램의 흐름을 변경할 수 있는 문법이다. 자바의 인터프리터는 위에서 아래로 프로그램을 읽어나간다. 따라서 제어문은 인터프리터가 어디를 읽게 할지 명령을 내리는 구문인 것이다.
 
 [제어문](https://raccoonjy.tistory.com/10)에는 두 가지 종류가 있다.
 - 조건문 (if, if else, switch)
 - 반복문 (for, while, do while)
 
-# 2. 조건문
-## 2.1. if
+# 조건문
+## if
 java에서의 if 문법은 다음과 같다.
 ```java
 if (조건문) {
@@ -43,7 +44,7 @@ public class IfExample {
 }
 ```
 
-## 2.2. if else
+## if else
 java에서의 if else 문법은 다음과 같다.
 ```java
 if (조건문) {
@@ -85,7 +86,7 @@ public class GradeExample {
 }
 ```
 
-## 2.3. switch
+## switch
 switch문은 저번주에 다뤘지만 한 번 더 써보겠다. 기본 문법은 두 가지가 있는데, -> 연산자를 활용한 switch문은 java13 이상부터 사용할 수 있다.
 ```java
 switch (수식) { // 수식은 int, 문자(char, string)
@@ -139,8 +140,8 @@ public class SwitchGradeExample {
 }
 ```
 
-# 3. 반복문
-## 3.1. for
+# 반복문
+## for
 for문은 초기식, 조건식, 증감식을 for문에 넣을 수 있어서 코드를 보면 언제 이 반복문을 탈출하는지 확인하기가 쉽다. 일단 문법부터 살펴보자.
 ```java
 for (초기식; 조건식; 증감식) {
@@ -215,7 +216,7 @@ public class ReverseInt {
 ```
 java는 int형을 boolean으로 취급하지 않기 때문에 논리형으로 넣어주어야 한다는 점을 유의하자.
 
-## 3.2. while
+## while
 우선 기본 문법부터 살펴보자.
 ```java
 while (조건식) {
@@ -236,7 +237,7 @@ public class WhileTest {
 ```
 혹은 원하는 값이 나올 때까지 `while문`을 돌게 만들 수도 있다. 활용 방안은 무궁무진하다.
 
-## 3.3. do whlie
+## do whlie
 `while문`과의 차이점이라면 `while문`은 조건식을 먼저 확인하고 블록을 실행하지만, `do while문`은 우선 실행을 하고 조건식을 확인한다. 문법은 다음과 같다.
 ```java
 do {
@@ -245,7 +246,7 @@ do {
 ```
 `do while`은 조건식이 거짓이면 바로 탈출한다.
 
-# 4. 번외; [문자열 포맷팅](https://adjh54.tistory.com/178)
+# 번외; [문자열 포맷팅](https://adjh54.tistory.com/178)
 위에서 구구단을 출력할 때 보지 못했던 것을 봤을 것이다. 이는 문자열 포맷팅인 것인데 우선 String에 관한 함수부터 알아보자.
 
 | 함수                 | descriptions                                | 사용법                                                                        |
@@ -255,7 +256,7 @@ do {
 | String.valueOf()     | 객체를 문자열로 변환                        | 입력값으로 숫자, 문자, 논리형, 문자열 및 기타 객체를 인수로 받아서 사용       |
 | String.copyValueOf() | 문자열 일부를 복사하여 새로운 문자열을 생성 | 복사할 문자열과 시작 위치, 복사할 문자의 개수를 입력받아 새로운 문자열을 반환 |
 
-## 4.1. String.format()
+## String.format()
 ```java
 public static String format(String format, Object... args)
 ```
@@ -292,7 +293,7 @@ public class FormatTest {
 ```
 [출력구문 추가 정보](https://keep-cool.tistory.com/15), [포맷팅 추가 정보](https://plas.tistory.com/18)
 
-## 4.2. String.join()
+## String.join()
 ```java
 public static String join(CharSequence delimiter, CharSequence... elemetns)
 ```
@@ -314,7 +315,7 @@ public class JoinTest {
 }
 ```
 
-## 4.3. String.valueOf()
+## String.valueOf()
 ```java
 public static String valueOf(boolean b)
 public static String valueOf(char c)
@@ -349,7 +350,7 @@ public class ValueOfTest {
 }
 ```
 
-## 4.4. String.copyValueOf()
+## String.copyValueOf()
 ```java
 public static String copyValueOf(char[] data)
 public static String copyValueOf(char[] data, int offset, int count)

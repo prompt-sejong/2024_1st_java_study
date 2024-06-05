@@ -1,12 +1,13 @@
-- [1. 클래스 정의하는 방법](#1-클래스-정의하는-방법)
-- [2. 객체 만드는 방법 (new 키워드 이해하기)](#2-객체-만드는-방법-new-키워드-이해하기)
-  - [2.1. 키워드 유무 차이](#21-키워드-유무-차이)
-- [3. 메소드 정의하는 방법](#3-메소드-정의하는-방법)
-- [4. 생성자 정의하는 방법](#4-생성자-정의하는-방법)
-  - [4.1. Method Overloading](#41-method-overloading)
-- [5. this 키워드 이해하기](#5-this-키워드-이해하기)
+목차
+- [클래스 정의하는 방법](#클래스-정의하는-방법)
+- [객체 만드는 방법 (new 키워드 이해하기)](#객체-만드는-방법-new-키워드-이해하기)
+  - [키워드 유무 차이](#키워드-유무-차이)
+- [메소드 정의하는 방법](#메소드-정의하는-방법)
+- [생성자 정의하는 방법](#생성자-정의하는-방법)
+  - [Method Overloading](#method-overloading)
+- [this 키워드 이해하기](#this-키워드-이해하기)
 
-# 1. [클래스 정의하는 방법](https://danmilife.tistory.com/19)
+# [클래스 정의하는 방법](https://danmilife.tistory.com/19)
 클래스의 기본 틀은 다음과 같다.
 ```java
 접근제어자 class ClassName {
@@ -55,8 +56,8 @@ public class FourCal {
     public static void main(String args[]) { ... }
 }
 ```
-# 2. 객체 만드는 방법 (new 키워드 이해하기)
-## 2.1. [키워드 유무 차이](https://yoo11052.tistory.com/52)
+# 객체 만드는 방법 (new 키워드 이해하기)
+## [키워드 유무 차이](https://yoo11052.tistory.com/52)
 ```java
 public class KeyWord {
     public static void main(String args[]) {
@@ -81,7 +82,7 @@ Q: 어? `String`은 무조건 `Reference Type` 아닌가요?
 
 A: 아닙니다. 원래 `Literal`은 대개 `Primitive Type`을 지칭하는 경우가 많으나, `""`로 묶인 문자열 또한 `immutable`, 즉 변경 불가능한 값으로 보고 `Literal`을 지원한다. 따라서 `new`를 사용하지 않은 `String`은 `Literal`이다.
 
-# 3. 메소드 정의하는 방법
+# 메소드 정의하는 방법
 위의 사칙연산 예시처럼 인자를 정해줘도 되지만, 아래처럼 여러 인자를 받아도 된다.
 ```java
 class Methods {
@@ -104,7 +105,7 @@ public class MethodTest {
     public static void main(String args[]) { ... }
 }
 ```
-# 4. 생성자 정의하는 방법
+# 생성자 정의하는 방법
 생성자는 클래스를 정의하고나서 이를 객체로 만들 때 실행된다. 즉, 인스턴스를 만들 때 실행된다는 뜻이다. 다음과 같은 코드를 예시로 들 수 있다.
 ```java
 class FourCalculator {
@@ -126,7 +127,7 @@ public class FourCal {
 ```
 사실 위에서 사용한 예시에서 생성자를 사용했다.
 
-## 4.1. Method Overloading
+## Method Overloading
 다음은 `Method Overloading`을 사용한 예시를 보자.
 ```java
 class FourCalculator {
@@ -155,7 +156,7 @@ public class FourCal {
 }
 ```
 위와 같이 메소드 오버로딩을 사용하여 생성자를 여러개 선언할 수 있다. 
-# 5. this 키워드 이해하기
+# this 키워드 이해하기
 생성자 오버로딩을 통해 this.도 사용하고, this()도 사용했다. this가 뭐길래 이렇게 사용하는 걸까?
 
 this는 인스턴스 본인이다. 클래스를 통해서 인스턴스를 생성하고나서 해당 인스턴스의 멤버 변수나 메소드를 불러오기 위해 class에 this로 정의한다.
